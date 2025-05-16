@@ -1,0 +1,100 @@
+@charset "UTF-8";
+
+body {
+    font-family: inter;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+.header-insight{
+	margin-top: 5rem;
+    text-align: center;
+    padding: 1.25rem;
+    background-color: #fff;
+    border-bottom: 0.0625rem solid #ddd;
+}
+.header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #000;
+}
+.header h1 span {
+    color: #ffd700;
+}
+.container {
+    display: flex;
+    max-width: 75rem;
+    margin: 1.25rem auto;
+    gap: 1.25rem;
+}
+.main-content {
+    flex: 2;
+}
+.sidebar {
+    flex: 1;
+    background-color: #fff;
+    padding: 0.9375rem;
+    border: 0.125rem solid #1e90ff;
+    border-radius: 0.3125rem;
+}
+.post {
+    background-color: #fff;
+    border: 0.0625rem solid #ddd;
+    border-radius: 0.3125rem;
+    overflow: hidden;
+    margin-bottom: 1.25rem;
+}
+.post img {
+    width: 100%;
+    height: 12.5rem;
+    object-fit: cover;
+}
+.post-content {
+    padding: 0.9375rem;
+}
+.post-content h2 {
+    font-size: 1.125rem;
+    margin: 0 0 0.625rem;
+}
+.post-content p {
+    font-size: 0.875rem;
+    color: #666;
+    margin: 0 0 0.625rem;
+}
+.post-content a {
+    text-decoration: none;
+    color: #1e90ff;
+    font-weight: bold;
+}
+.sidebar h3 {
+    font-size: 1rem;
+    margin: 0 0 0.9375rem;
+}
+.sidebar .post {
+    margin-bottom: 0.9375rem;
+}
+.sidebar .post-content h2 {
+    font-size: 0.875rem;
+}
+.all-posts {
+    max-width: 75rem;
+    margin: 0 auto 1.25rem;
+}
+.all-posts h3 {
+    font-size: 1.125rem;
+    margin-bottom: 0.9375rem;
+}
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+}
+@media (max-width: 48rem) {
+    .container {
+        flex-direction: column;
+    }
+    .posts-grid {
+        grid-template-columns: 1fr;
+    }
+}
