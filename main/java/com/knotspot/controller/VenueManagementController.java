@@ -85,7 +85,7 @@ public class VenueManagementController extends HttpServlet {
 		Part venueImage = request.getPart("venue_image");
 		String imageFilePath = venueImage.getSubmittedFileName();
 		System.out.println("Selected file name: "+imageFilePath);
-		String uploadPath="C:/Users/eerii/eclipse-workspace/KnotSpotBackup/src/main/webapp/resources/"+imageFilePath;
+		String uploadPath="C:/Users/eerii/eclipse-workspace/KnotSpot/src/main/webapp/resources/"+imageFilePath;
 		System.out.println("uploaded file name: "+uploadPath);
 		System.out.println("Retrieved data");
 		
@@ -175,7 +175,7 @@ public class VenueManagementController extends HttpServlet {
 		Part venueImage = request.getPart("venue_image");
 		String imageFilePath = venueImage.getSubmittedFileName();
 		System.out.println("Selected file name: "+imageFilePath);
-		String uploadPath="C:/Users/eerii/eclipse-workspace/KnotSpotBackup/src/main/webapp/resources/"+imageFilePath;
+		String uploadPath="C:/Users/eerii/eclipse-workspace/KnotSpot/src/main/webapp/resources/"+imageFilePath;
 		System.out.println("uploaded file name: "+uploadPath);
 		
 		boolean isValid = isValidInputs(request, response, venueName, venueAddress, contactNumber, amenities, venueImage);

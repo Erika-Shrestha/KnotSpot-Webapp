@@ -42,6 +42,9 @@ public class AuthenticationFilter implements Filter {
 	    
 	    String url = req.getRequestURI();
 	    System.out.println("Requested URL: " + url);
+	    
+	    avoidBackArrow(res);
+	    
 	   	    if (url.contains(login)|| url.contains("/WEB-INF/") ||
 	        url.endsWith(".css") || url.endsWith(".js") || url.endsWith(".jpg") || url.endsWith(".png") || 
 	        url.endsWith(".mp4") || url.contains("/resources/") ||
@@ -58,7 +61,6 @@ public class AuthenticationFilter implements Filter {
 	   	 boolean notLoggedIn = SessionUtil.redirectIfNotloggedIn(req, res, login);
 		    if (notLoggedIn) {
 		        System.out.println("Session missing or user not logged in.");
-		        avoidBackArrow(res);
 		        return;
 		    }
 

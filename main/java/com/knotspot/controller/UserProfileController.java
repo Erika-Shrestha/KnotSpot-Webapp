@@ -59,7 +59,7 @@ public class UserProfileController extends HttpServlet {
 		Part image = request.getPart("profile_image");
 		String imageFilePath = image.getSubmittedFileName();
 		System.out.println("Selected file name: "+imageFilePath);
-		String uploadPath="C:/Users/eerii/eclipse-workspace/KnotSpotBackup/src/main/webapp/resources/"+imageFilePath;
+		String uploadPath="C:/Users/eerii/eclipse-workspace/KnotSpot/src/main/webapp/resources/"+imageFilePath;
 		System.out.println("uploaded file name: "+uploadPath);
 		System.out.println("Retrieved data");
 
