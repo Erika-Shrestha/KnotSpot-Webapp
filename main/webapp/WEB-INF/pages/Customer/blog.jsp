@@ -29,33 +29,51 @@
 	</header>
 	<main>
 		<div class="header-insight">
-        <h1>INSIGHT<span><i class="fa-solid fa-star"></i></span>INSIGHT</h1>
+        <h1>INSIGHT  <span><i class="fa-solid fa-star"></i></span>   INSIGHT</h1>
     </div>
     <div class="container">
         <div class="main-content">
-            <div class="post">
+            <div class="post focus">
                 <img src="${pageContext.request.contextPath}/resources/blogfour.jpg" alt="test_image" class="blog-img">
                 <div class="post-content">
                     <p>Erika Shrestha - 20 Jan 2024</p>
                     <h2>Top Religious Weddings in the History with Luxurious Venues</h2>
-                    <a href="#">RESEARCH</a>
+                    <a href="#">VIEW</a>
                 </div>
             </div>
         </div>
         <div class="sidebar">
             <h3>Other featured posts</h3>
             <div class="post">
+            	<img src="${pageContext.request.contextPath}/resources/blogone.png" alt="test_image">
                 <div class="post-content">
                     <p>Erika Shrestha - 20 Jan 2024</p>
                     <h2>Top Religious Weddings in the History with Luxurious Venues</h2>
-                    <a href="#">RESEARCH</a>
+                    <a href="#">VIEW</a>
                 </div>
             </div>
             <div class="post">
+            <img src="${pageContext.request.contextPath}/resources/blogone.png" alt="test_image">
                 <div class="post-content">
                     <p>Erika Shrestha - 20 Jan 2024</p>
                     <h2>Top Religious Weddings in the History with Luxurious Venues</h2>
-                    <a href="#">RESEARCH</a>
+                    <a href="#">VIEW</a>
+                </div>
+            </div>
+            <div class="post">
+            <img src="${pageContext.request.contextPath}/resources/blogone.png" alt="test_image">
+                <div class="post-content">
+                    <p>Erika Shrestha - 20 Jan 2024</p>
+                    <h2>Top Religious Weddings in the History with Luxurious Venues</h2>
+                    <a href="#">VIEW</a>
+                </div>
+            </div>
+            <div class="post">
+            <img src="${pageContext.request.contextPath}/resources/blogone.png" alt="test_image">
+                <div class="post-content">
+                    <p>Erika Shrestha - 20 Jan 2024</p>
+                    <h2>Top Religious Weddings in the History with Luxurious Venues</h2>
+                    <a href="#">VIEW</a>
                 </div>
             </div>
         </div>
@@ -64,27 +82,27 @@
         <h3>ALL BLOG POSTS</h3>
         <div class="posts-grid">
             <div class="post">
-                <img src="${pageContext.request.contextPath}/resources/blogone.png" alt="test_image" class="blog-img">
+                <img src="${pageContext.request.contextPath}/resources/blogone.png" alt="test_image">
                 <div class="post-content">
                     <p>Erika Shrestha - 20 Jan 2024</p>
                     <h2>Top Religious Weddings in the History with Luxurious Venues</h2>
-                    <a href="#">RESEARCH</a>
+                    <a href="#">VIEW</a>
                 </div>
             </div>
             <div class="post">
-                <img src="${pageContext.request.contextPath}/resources/blogthree.jpg" alt="test_image" class="blog-img">
+                <img src="${pageContext.request.contextPath}/resources/blogthree.jpg" alt="test_image">
                 <div class="post-content">
                     <p>Erika Shrestha - 20 Jan 2024</p>
                     <h2>Top Religious Weddings in the History with Luxurious Venues</h2>
-                    <a href="#">RESEARCH</a>
+                    <a href="#">VIEW</a>
                 </div>
             </div>
             <div class="post">
-                <img src="${pageContext.request.contextPath}/resources/cat-one.jpg" alt="test_image" class="blog-img">
+                <img src="${pageContext.request.contextPath}/resources/cat-one.jpg" alt="test_image">
                 <div class="post-content">
                     <p>Erika Shrestha - 20 Jan 2024</p>
                     <h2>Top Religious Weddings in the History with Luxurious Venues</h2>
-                    <a href="#">RESEARCH</a>
+                    <a href="#">VIEW</a>
                 </div>
             </div>
         </div>

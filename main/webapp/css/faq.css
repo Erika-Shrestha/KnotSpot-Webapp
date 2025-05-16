@@ -8,12 +8,21 @@
 body{
 	width: 100%;
 	min-height: 80rem;
-	background: white;
+	background-color: #FEF9F0;
 }
 
-header{
-	background: #FFEE93;
+header .navigation a{
+    color: white;
 }
+
+header nav i{
+    color: white;
+}
+
+header label #btn, header label #cancel {
+	color: white;
+}
+
 
 .faq-main-con{
 	width: 100%;
@@ -32,10 +41,12 @@ header{
 	gap: 1rem;
 	justify-content: center;
 	align-items: center;
-	background-color: #FFEE93;
+	background-color: #4E0707;
+	color: #EAD9D2;
 }
 
 .top-con h2{
+	margin-top: 3rem;
 	font-size: 0.9rem;
 }
 
@@ -127,7 +138,7 @@ header{
 
 .ques i{
 	cursor: pointer;
-	color: #FFEE93;
+	color: #4E0707;
 }
 
 .ques h1{
@@ -141,7 +152,7 @@ header{
 	height: 6rem;
 	margin-top: 5rem;
 	border-radius: 4rem 0.7rem 4rem 0.7rem;
-	background-color: #FFEE93;
+	background-color: #EAD9D2;
 }
 
 .bottom-con h1{
@@ -160,8 +171,8 @@ header{
 	height: 2rem;
 	top: 35%;
 	left: 80%;
-	background-color: #FBBC05;
-	color: black;
+	background-color: #4E0707;
+	color: #EAD9D2;
 	border-radius: 1rem;
 	box-shadow: 0 0 0.5rem rgba(0,0,0,0.1);
 	border: none;
@@ -169,4 +180,9 @@ header{
 	font-size: 0.7rem;
 	font-weight: 500;
 	cursor: pointer;
+	transition: transform 0.2s ease-in-out;
+}
+
+.go-info-btn:hover{
+	transform: scale(1.1);
 }

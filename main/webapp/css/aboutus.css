@@ -8,8 +8,7 @@
 body{
 	width: 100%;
 	min-height: 90rem;
-	background: black;
-	color: white;
+	background-color: #FEF9F0;
 }
 
 header{
@@ -153,7 +152,7 @@ header{
 	text-align: center;
 	padding: 1rem;
 	background-color: black;
-	color: #FFEE93;
+	color: #EAD9D2;
 }
 
 
@@ -191,18 +190,17 @@ header{
 .mission-img-con{
 	width: 30%;
 	height: 80%;
-	background-color: #FFEE93;
+	background-color: #4E0707;
 }
 
 .mission-img{
 	position: absolute;
-	top:1%;
-	left: 10%;
+	top:8%;
+	left: 10.3%;
 }
 
 .img-one{
 	width : 32%;
-	height: 80%;
 }
 
 .vision-txt{
@@ -213,7 +211,7 @@ header{
 .vision-img-con{
 	width: 30%;
 	height: 80%;
-	background-color: #FFEE93;
+	background-color: #4E0707;
 }
 
 .vision-img{

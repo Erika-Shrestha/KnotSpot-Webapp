@@ -4,40 +4,47 @@ body {
     font-family: inter;
     margin: 0;
     padding: 0;
-    background-color: #f5f5f5;
+    background-color: #FEF9F0;
 }
 
 .header-insight{
+	margin-left: 22%;
+	width: 50%;
 	margin-top: 5rem;
     text-align: center;
     padding: 1.25rem;
-    background-color: #fff;
-    border-bottom: 0.0625rem solid #ddd;
 }
-.header h1 {
+
+.header-insight h1 {
     margin: 0;
-    font-size: 1.5rem;
+    font-size: 2rem;
     color: #000;
 }
-.header h1 span {
+
+.header-insight h1 span {
     color: #ffd700;
 }
+
 .container {
     display: flex;
     max-width: 75rem;
     margin: 1.25rem auto;
     gap: 1.25rem;
 }
+
 .main-content {
+	height: 45rem;
     flex: 2;
 }
+
 .sidebar {
     flex: 1;
-    background-color: #fff;
+    background-color: #EAD9D2;
     padding: 0.9375rem;
-    border: 0.125rem solid #1e90ff;
+    border: 0.125rem solid #4E0707;
     border-radius: 0.3125rem;
 }
+
 .post {
     background-color: #fff;
     border: 0.0625rem solid #ddd;
@@ -45,56 +52,81 @@ body {
     overflow: hidden;
     margin-bottom: 1.25rem;
 }
+
+.post.focus{
+	height: 48.3rem;
+}
+
 .post img {
     width: 100%;
     height: 12.5rem;
     object-fit: cover;
 }
+
 .post-content {
     padding: 0.9375rem;
 }
+
 .post-content h2 {
     font-size: 1.125rem;
     margin: 0 0 0.625rem;
 }
+
 .post-content p {
     font-size: 0.875rem;
     color: #666;
     margin: 0 0 0.625rem;
 }
+
 .post-content a {
+	display: inline-block;
     text-decoration: none;
-    color: #1e90ff;
+    color: #4E0707;
     font-weight: bold;
+    transition: transform 0.2s ease-in-out;
 }
+
+.post-content a:hover {
+	transform: scale(1.1);
+    text-decoration: underline;
+}
+
+.post .blog-img{
+	height: 35rem;
+}
+
 .sidebar h3 {
     font-size: 1rem;
     margin: 0 0 0.9375rem;
 }
+
 .sidebar .post {
     margin-bottom: 0.9375rem;
+    display: flex;
+    gap: 1rem;
 }
+
+.sidebar .post img{
+	width: 10rem;
+	height: 10rem;
+}
+
 .sidebar .post-content h2 {
     font-size: 0.875rem;
 }
+
 .all-posts {
     max-width: 75rem;
-    margin: 0 auto 1.25rem;
+    margin: 3rem auto 3rem;
 }
+
 .all-posts h3 {
     font-size: 1.125rem;
-    margin-bottom: 0.9375rem;
+    margin-bottom: 2rem;
 }
+
 .posts-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.25rem;
-}
-@media (max-width: 48rem) {
-    .container {
-        flex-direction: column;
-    }
-    .posts-grid {
-        grid-template-columns: 1fr;
-    }
 }
