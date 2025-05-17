@@ -10,11 +10,11 @@ import java.util.List;
 import com.knotspot.config.DbConfig;
 import com.knotspot.model.VenueModel;
 
-public class SearchService {
+public class SortService {
+
+	private Connection conn;
 	
-private Connection conn;
-	
-	public SearchService() {
+	public SortService() {
 		try {
 			conn = DbConfig.getDbConnection();
 		}catch(SQLException | ClassNotFoundException e){
@@ -27,19 +27,20 @@ private Connection conn;
 	    return conn;
 	}
 	
-	public List<VenueModel> selectVenueByNameOrCity(String searchValue){
+	public List<VenueModel> sortVenues(String sortOrder){
 		
 		List<VenueModel> venues = new ArrayList<>();
 		if(conn == null) {
 			System.out.println("DB connection failed");
 		}
 		
-		String searchSql = "SELECT venue_id, name, address, city, contact_no, capacity, amenities, type, registered_date, venue_picture, status FROM venues WHERE name LIKE ? OR city LIKE ?";
+		if (!"ASC".equalsIgnoreCase(sortOrder) && !"DESC".equalsIgnoreCase(sortOrder)) {
+	        sortOrder = "ASC";
+	    }
 		
-		try(PreparedStatement ps = conn.prepareStatement(searchSql)) {
-			
-			ps.setString(1, "%"+searchValue+"%");
-			ps.setString(2, "%"+searchValue+"%");
+		String sortSql = "SELECT venue_id, name, address, city, contact_no, capacity, amenities, type, registered_date, venue_picture, status FROM venues ORDER BY name"+" "+ sortOrder;
+		
+		try(PreparedStatement ps = conn.prepareStatement(sortSql)) {
 			
 			ResultSet i = ps.executeQuery();
 			

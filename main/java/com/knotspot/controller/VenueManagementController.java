@@ -15,6 +15,8 @@ import java.util.List;
 
 import com.knotspot.model.VenueModel;
 import com.knotspot.service.CrudService;
+import com.knotspot.service.SearchService;
+import com.knotspot.service.SortService;
 import com.knotspot.util.ValidationUtil;
 
 /**
@@ -49,6 +51,14 @@ public class VenueManagementController extends HttpServlet {
 	        case "edit":
 	            venueById(request, response);
 	            break;
+	            
+	        case "search":
+	        	searchVenue(request,response);
+	        	break;
+	        
+	        case "sort":
+	        	sortVenue(request,response);
+	        	break;
 	            
 	        default:
 	            allVenues(request, response);
@@ -263,6 +273,25 @@ public class VenueManagementController extends HttpServlet {
 	    List<VenueModel> listVenue = crudService.selectAllVenues();
 	    request.setAttribute("listVenue", listVenue);
 		request.getRequestDispatcher("/WEB-INF/pages/Admin/venuemanagement.jsp").forward(request, response);
+	}
+	
+	private void searchVenue(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		String searchValue = request.getParameter("search_bar");
+		SearchService search = new SearchService();
+		List<VenueModel> searchVenue = search.selectVenueByNameOrCity(searchValue);
+		request.setAttribute("searchVenueList", searchVenue);
+		request.getRequestDispatcher("/WEB-INF/pages/Admin/venuemanagement.jsp").forward(request,response);
+	}
+	
+	private void sortVenue(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		String sortOrder = request.getParameter("sort_bar");
+		 System.out.println("Sort order: " + sortOrder);
+		SortService sort = new SortService();
+		List<VenueModel> sortVenue = sort.sortVenues(sortOrder);
+		request.setAttribute("sortValue", sortOrder);
+	    request.setAttribute("sortVenueList", sortVenue);
+	    request.setAttribute("searchVenueList", null);
+		request.getRequestDispatcher("/WEB-INF/pages/Admin/venuemanagement.jsp").forward(request,response);
 	}
 
 }

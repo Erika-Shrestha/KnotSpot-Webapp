@@ -27,8 +27,6 @@
 	<%@ include file="navigation.jsp" %>
 	<section class="home">
 		<div class="search-con">
-			<input type="text" placeholder="search">
-			<i class="fa-solid fa-magnifying-glass"></i>
 			<!-- This is for notification bell -->
 			<a href="#" class="notify-link"><i class="fa-solid fa-bell icon"></i></a>
 		</div>
@@ -36,14 +34,24 @@
 			<label>Venue Details</label>
 		</div>
 		<div class="filters">
+			<form action="${pageContext.request.contextPath}/management" method="get">
 			<div class="search-con search">
-				<input type="text" placeholder="search venues...">
+				<input type="text" placeholder="search venues..." name="search_bar">
+				<input type="hidden" name="action" value="search">
+				<i class="fa-solid fa-magnifying-glass"></i>
 				<i class="fa-solid fa-magnifying-glass"></i>
 			</div>
+			</form>
+			<form action="${pageContext.request.contextPath}/management" method="get">
 			<div class="sort">
-				<i class="fa fa-filter" aria-hidden="true"></i>
-				<label>Filters</label>
+			<input type="hidden" name="action" value="sort">
+    			<select class="sort combo" name="sort_bar" onchange="this.form.submit()" required>
+       				<option value="" selected>Filter</option>
+       				<option value="ASC" ${sortValue == 'ASC' ? 'selected' : ''}>Ascending</option>
+       				<option value="DESC" ${sortValue == 'DESC' ? 'selected' : ''}>Descending</option>
+    			</select>
 			</div>
+			</form>
 			<button class="add-btn" id="openCreate"><i class="fa-solid fa-plus"></i></button>
 		</div>
 		<div class="table-container">
@@ -64,9 +72,69 @@
 		      </tr>
 		    </thead>
 		    <tbody>
+		    <c:choose>
+			<c:when test="${not empty searchVenueList}">
+			<c:forEach var="searchVenue" items="${searchVenueList}">
+		      <tr>
+		        <td><img src="${pageContext.request.contextPath}/resources/${searchVenue.venuePic}" alt="Venue Image" class="venues"></td>
+		        <td><c:out value='${searchVenue.venueId}'/></td>
+		        <td><c:out value='${searchVenue.name}'/></td>
+		        <td><c:out value='${searchVenue.address}'/></td>
+		        <td><c:out value='${searchVenue.contactNumber}'/></td>
+		        <td><c:out value='${searchVenue.capacity}'/></td>
+		        <td><c:out value='${searchVenue.amenities}'/></td>
+		        <td><c:out value='${searchVenue.registeredDate}'/></td>
+		        <td><c:out value='${searchVenue.type}'/></td>
+		        <td><span class="badge high"><c:out value='${searchVenue.status}'/></span></td>
+		        <td class="actions">
+    				<form action="${pageContext.request.contextPath}/management" method="get">
+				        <input type="hidden" name="action" value="edit">
+				        <input type="hidden" name="venue_id" value="${searchVenue.venueId}">
+				        <button type="submit" class="edit-btn"><i class="fas fa-pen"></i></button>
+				    </form>
+  					<button><i class="fas fa-eye" onclick="openPanel()"></i></button>
+  					<form action="${pageContext.request.contextPath}/management" method="post" onsubmit="return confirm('Are you sure you want to delete this venue?');">
+  						<input type="hidden" name="action" value="delete">
+  						<input type="hidden" name="venue_id" value="<c:out value='${searchVenue.venueId}'/>">
+    					<button type="submit"><i class="fas fa-trash"></i></button>
+		        	</form>
+		        </td>
+		      </tr>
+		    </c:forEach>
+		    </c:when>
+		    <c:when test="${not empty sortVenueList}">
+			<c:forEach var="sortVenue" items="${sortVenueList}">
+		      <tr>
+		        <td><img src="${pageContext.request.contextPath}/resources/${sortVenue.venuePic}" alt="Venue Image" class="venues"></td>
+		        <td><c:out value='${sortVenue.venueId}'/></td>
+		        <td><c:out value='${sortVenue.name}'/></td>
+		        <td><c:out value='${sortVenue.address}'/></td>
+		        <td><c:out value='${sortVenue.contactNumber}'/></td>
+		        <td><c:out value='${sortVenue.capacity}'/></td>
+		        <td><c:out value='${sortVenue.amenities}'/></td>
+		        <td><c:out value='${sortVenue.registeredDate}'/></td>
+		        <td><c:out value='${sortVenue.type}'/></td>
+		        <td><span class="badge high"><c:out value='${sortVenue.status}'/></span></td>
+		        <td class="actions">
+    				<form action="${pageContext.request.contextPath}/management" method="get">
+				        <input type="hidden" name="action" value="edit">
+				        <input type="hidden" name="venue_id" value="${sortVenue.venueId}">
+				        <button type="submit" class="edit-btn"><i class="fas fa-pen"></i></button>
+				    </form>
+  					<button><i class="fas fa-eye" onclick="openPanel()"></i></button>
+  					<form action="${pageContext.request.contextPath}/management" method="post" onsubmit="return confirm('Are you sure you want to delete this venue?');">
+  						<input type="hidden" name="action" value="delete">
+  						<input type="hidden" name="venue_id" value="<c:out value='${sortVenue.venueId}'/>">
+    					<button type="submit"><i class="fas fa-trash"></i></button>
+		        	</form>
+		        </td>
+		      </tr>
+		    </c:forEach>
+		    </c:when>
+  			<c:otherwise>
 		    <c:forEach var="venue" items="${listVenue}">
 		      <tr>
-		        <td><input type="checkbox"></td>
+		        <td><img src="${pageContext.request.contextPath}/resources/${venue.venuePic}" alt="Venue Image" class="venues"></td>
 		        <td><c:out value='${venue.venueId}'/></td>
 		        <td><c:out value='${venue.name}'/></td>
 		        <td><c:out value='${venue.address}'/></td>
@@ -91,6 +159,8 @@
 		        </td>
 		      </tr>
 		    </c:forEach>
+		    </c:otherwise>
+  			</c:choose>
 		    </tbody>
 		  </table>
 		</div>

@@ -49,7 +49,7 @@
 			<div class="menu">
 				<ul class="menu-links">
 					<li class="nav-link">
-						<a href="#">
+						<a href="${pageContext.request.contextPath}/dashboard">
 							<i class="fa fa-home icon" aria-hidden="true"></i>
 							<span class="text nav-text">Dashboard</span>
 						</a>
@@ -61,13 +61,13 @@
 						</a>
 					</li>
 					<li class="nav-link">
-						<a href="#">
+						<a href="${pageContext.request.contextPath}/calendar">
 							<i class="fa fa-calendar icon" aria-hidden="true"></i>
 							<span class="text nav-text">Calendar</span>
 						</a>
 					</li>
 					<li class="nav-link">
-						<a href="#">
+						<a  href="${pageContext.request.contextPath}/analytics">
 							<i class="fa fa-file-text icon" aria-hidden="true"></i>
 							<span class="text nav-text">Report</span>
 						</a>
@@ -84,7 +84,7 @@
 			<div class="bottom-content">
 				<ul class="menu-links">
 				 <li class="nav-link">
-					<form action="${pageContext.request.contextPath}/logout" method="post" class="logout-form">
+					<form action="${pageContext.request.contextPath}/logout" method="post" class="logout-form" onsubmit="return confirm('Are you sure you want to log out ?');">
 						<a href="#">
 							<button type="submit" class="menu-link logout-button" name="logout" value="logout">
 							<i class="fa fa-sign-out icon" aria-hidden="true"></i>

@@ -28,8 +28,45 @@
 		<%@ include file="header.jsp" %>
 	</header>
 	<main>
+		<section class="image-slider">
+			<div class="banner">
+				<h1>Collections</h1>
+				<div class="img-slider" style="--quantity: 10">
+					<div class="item" style="--position: 1">
+						<img src="${pageContext.request.contextPath}/resources/3dvenue1.jpg" alt="test_image">
+					</div>
+					<div class="item" style="--position: 2">
+						<img src="${pageContext.request.contextPath}/resources/3dvenue2.jpg" alt="test_image">
+					</div>
+					<div class="item" style="--position: 3">
+						<img src="${pageContext.request.contextPath}/resources/3dvenue3.jpg" alt="test_image">
+					</div>
+					<div class="item" style="--position: 4">
+						<img src="${pageContext.request.contextPath}/resources/3dvenue4.jpg" alt="test_image">
+					</div>
+					<div class="item" style="--position: 5">
+						<img src="${pageContext.request.contextPath}/resources/3dvenue5.jpg" alt="test_image">
+					</div>
+					<div class="item" style="--position: 6">
+						<img src="${pageContext.request.contextPath}/resources/3dvenue6.jpg" alt="test_image">
+					</div>
+					<div class="item" style="--position: 7">
+						<img src="${pageContext.request.contextPath}/resources/3dvenue7.jpg" alt="test_image">
+					</div>
+					<div class="item" style="--position: 8">
+						<img src="${pageContext.request.contextPath}/resources/3dvenue8.jpg" alt="test_image">
+					</div>
+					<div class="item" style="--position: 9">
+						<img src="${pageContext.request.contextPath}/resources/3dvenue9.jpg" alt="test_image">
+					</div>
+					<div class="item" style="--position: 10">
+						<img src="${pageContext.request.contextPath}/resources/3dvenue10.jpg" alt="test_image">
+					</div>
+				</div>
+			</div>
+		</section>
 		<section class="product-details-con">
-		<form action="${pageContext.request.contextPath}/product" method="get">
+		<form action="${pageContext.request.contextPath}/product#results" method="get">
 			<div class="search-con">
 				<input type="text" placeholder="search" name="search_bar">
 				<button type="submit" class="search-btn">
@@ -38,7 +75,7 @@
         		<button type="submit" name="search_bar" value="">Clear Search</button>
 			</div>
 		</form>
-		<div class="venue-div">
+		<div class="venue-div" id="results">
 		<c:choose>
 		<c:when test="${not empty searchVenueList}">
 		<c:forEach var="searchVenue" items="${searchVenueList}">

@@ -88,10 +88,13 @@
 	box-shadow: 0rem 0.05rem 0.05rem 0.05rem rgba(0,0,0,0.2);
 }
 
+.sort.combo{
+	border: none;
+}
+
 .table-container {
-	width: 65rem;
+	width: 50rem;
 	padding: 1rem;
-	margin: 0 auto;
 	margin-top: 2rem;
 }
 
@@ -100,6 +103,11 @@
   border-collapse: collapse;
   font-size: 0.875rem; 
   background: #FFF;
+}
+
+.venues{
+	width: 5rem;
+	height: 5rem;
 }
 
 .venue-table th,
@@ -143,8 +151,13 @@
 }
 
 .actions{
-  width: 8rem;
-  min-width: 8rem;
+  width: 100%;
+  height: 8rem;
+  display: flex;
+  flex-direction: row;
+  gap: 0.6rem;
+  justify-content: center;
+  align-items: center;
 }
 
 .actions button {
@@ -282,8 +295,6 @@
 .modal input{
 	opacity: 0.7;
 }
-
-
 
 .modal-container form div{
 	position: relative;

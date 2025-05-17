@@ -96,7 +96,7 @@
 				<span>></span>
 				</a>
 				
-				<form action="${pageContext.request.contextPath}/logout" method="post" class="logout-form">
+				<form action="${pageContext.request.contextPath}/logout" method="post" class="logout-form" onsubmit="return confirm('Are you sure you want to log out ?');">
 				  <button type="submit" class="menu-link logout-button" name="logout" value="logout">
 				    <i class="fa-solid fa-right-from-bracket"></i>
 				    <p>Logout</p>
