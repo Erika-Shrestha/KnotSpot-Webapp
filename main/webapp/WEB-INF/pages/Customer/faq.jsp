@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Knot spot</title>
 <!-- This connects to dashboard.css file -->
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/faq.css">
 
@@ -30,7 +30,7 @@
 			</div>
 		</div>
 		<div class="ques-con">
-				<ul>
+				<ul class="heading-ul">
                   <li><a href="">Bookings</a></li>
                   <li><a href="">Bill & Payment</a></li>
                   <li><a href="">Account</a></li>
@@ -38,22 +38,43 @@
                   <li><a href="">Others</a></li>
                 </ul>
                 <div class="ques-ans">
-                	<div class="ques">
-                		<i class="fa-solid fa-circle-minus"></i>
-                		<h1>How does the site work ?</h1>
-                	</div>
-                	<div class="ques">
-                		<i class="fa-solid fa-circle-minus"></i>
-                		<h1>Do you serve my area ?</h1>
-                	</div>
-                	<div class="ques">
-                		<i class="fa-solid fa-circle-minus"></i>
-                		<h1>What if the venue is unavailable ?</h1>
-                	</div>
-                	<div class="ques">
-                		<i class="fa-solid fa-circle-minus"></i>
-                		<h1>How do i refund after cancellation ?</h1>
-                	</div>
+                	<ul class="accordion">
+                		<li>
+                			<input type="radio" name="accordion" id="first" checked>
+                			<label for="first">How does the site work ?</label>
+                			<div class="content">
+                				<p>Knot Spot allows users to browse, book, and manage venue reservations for events. You can search venues by location, date, and type of event.</p>
+                			</div>
+                		</li>
+                		<li>
+                			<input type="radio" name="accordion" id="second">
+                			<label for="second">Do you serve my area ?</label>
+                			<div class="content">
+                				<p>We currently serve major cities and nearby regions. Enter your city in the search bar to see available venues in your area.</p>
+                			</div>
+                		</li>
+                		<li>
+                			<input type="radio" name="accordion" id="third">
+                			<label for="third">What if the venue is unavailable ?</label>
+                			<div class="content">
+                				<p>If a venue is booked or unavailable, our system will suggest other venues with similar features and capacity on your chosen date.</p>
+                			</div>
+                		</li>
+                		<li>
+                			<input type="radio" name="accordion" id="fourth">
+                			<label for="fourth">Can I change my booking date?</label>
+                			<div class="content">
+                				<p>Refunds can be requested through sending emails with proper screenshot. Once a cancellation is confirmed, refunds are processed within 5–7 business days.</p>
+                			</div>
+                		</li>
+                		<li>
+                			<input type="radio" name="accordion" id="fifth">
+                			<label for="fifth">How does the site work ?</label>
+                			<div class="content">
+                				<p>Yes, you can change your booking date from your account. Just go to 'My Bookings' and choose a new date.</p>
+                			</div>
+                		</li>
+                	</ul>
                 </div>
 		</div>
 		 <div class="bottom-con">
