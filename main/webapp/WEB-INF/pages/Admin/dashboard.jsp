@@ -32,20 +32,26 @@
 	    <div>
 	      <div class="cards">
 	        <div class="card">
-	          <div class="title">Total Revenue</div>
-	          <div class="value">$45,678.90</div>
+	          <div class="title">Total Venues</div>
+	          <div class="value">${listVenueCount}</div>
 	          <div class="change">+20% month over month</div>
 	        </div>
 	        <div class="card dark">
-	          <div class="value">2,405</div>
+	          <div class="title">Average Venue Capacity</div>
+	          <div class="value">${averageCapacity}</div>
 	          <div class="change">+33% month over month</div>
 	        </div>
 	        <div class="card">
-	          <div class="title">Total Return of Investment</div>
-	          <div class="value">$45,678.90</div>
-	          <div class="change">+20% month over month</div>
+	          <div class="title">Total Active Users</div>
+	          <div class="value">${activeUsers}</div>
+	          <div class="change">+10% month over month</div>
 	        </div>
 	      </div>
+	      
+	      <div class="stats register">
+        	<h4>Daily Registered Users</h4>
+        	<canvas id="registerChart"></canvas>
+		  </div>
 	      
 	      <div class="venues">
 	        <h3>Venues</h3>
@@ -64,7 +70,7 @@
 	          <tbody>
               <c:forEach var="venue" items="${listVenue}">
 		      	<tr>
-		        <td><input type="checkbox"></td>
+		        <td><img src="${pageContext.request.contextPath}/resources/${venue.venuePic}" alt="Venue Image" class="venue"></td>
 		        <td><c:out value='${venue.venueId}'/></td>
 		        <td><c:out value='${venue.name}'/></td>
 		        <td><c:out value='${venue.address}'/></td>
@@ -79,25 +85,44 @@
 	    </div>
 	    <div class="right-section">
 	      <div class="list">
-	        <h4>Recent User Sign-Ups</h4>
-	        <div class="list-item"><img src="${pageContext.request.contextPath}/resources/userpfp.jpg"><span>Helena - helena@gmail.com</span></div>
-	        <div class="list-item"><img src="${pageContext.request.contextPath}/resources/missionimg.jpg"><span>Aamir - aamirhameed7@gmail.com</span></div>
-	        <div class="list-item"><img src="${pageContext.request.contextPath}/resources/cat-one.jpg"><span>Bunu - bunu@gmail.com</span></div>
+	        <h4>Most Experienced Admin</h4>
+			<c:forEach var="oldestAdmin" items="${listAdmin}">
+	        <div class="list-item"><img src="${pageContext.request.contextPath}/resources/${oldestAdmin.profilePic}"><span>${oldestAdmin.firstName} - ${oldestAdmin.email}</span></div>
+	        </c:forEach>
+	      </div>
+	      <div class="stats">
+	        <h4>Admins</h4>
+	        <div>${listAdminCount}</div>
+	      </div>
+	      <div class="list">
+	        <h4>Recent Customer Sign-Ups</h4>
+			<c:forEach var="recentCustomer" items="${listCustomer}">
+	        <div class="list-item"><img src="${pageContext.request.contextPath}/resources/${recentCustomer.profilePic}"><span>${recentCustomer.firstName} - ${recentCustomer.email}</span></div>
+	        </c:forEach>
 	      </div>
 	      <div class="stats">
 	        <h4>Customers</h4>
-	        <div>200</div>
+	        <div>${listCustomerCount}</div>
 	      </div>
-	      <div class="stats">
-        	<h4>Total Revenue</h4>
-        	<canvas id="revenueChart"></canvas>
-      	  </div>
 	    </div>
 	  </div>
 
         
 	</section>
 	<script type="text/javascript" src="${pageContext.request.contextPath}/javascript/dashboard.js"></script>
-
+	<script>
+	  const registrationData = {
+	    labels: [
+	      <c:forEach var="row" items="${registrationGraph}" varStatus="status">
+	        '${row[0]}'<c:if test="${!status.last}">, </c:if>
+	      </c:forEach>
+	    ],
+	    counts: [
+	      <c:forEach var="row" items="${registrationGraph}" varStatus="status">
+	        ${row[1]}<c:if test="${!status.last}">, </c:if>
+	      </c:forEach>
+	    ]
+	  };
+	</script>
 </body>
 </html>

@@ -26,7 +26,10 @@ import com.knotspot.util.ValidationUtil;
 @WebServlet(asyncSupported = true, urlPatterns = { "/management" })
 public class VenueManagementController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	
+	/**
+	 * performs the speciric method call by action values using switch-case 
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String action = request.getParameter("action");
 		System.out.println("Form action value: " + action);
@@ -52,6 +55,10 @@ public class VenueManagementController extends HttpServlet {
 	            venueById(request, response);
 	            break;
 	            
+	        case "view":
+                venueById(request, response); 
+                break;
+	            
 	        case "search":
 	        	searchVenue(request,response);
 	        	break;
@@ -66,11 +73,27 @@ public class VenueManagementController extends HttpServlet {
 			}
 		}
 	}
-
+	
+	/**
+	 * calls the doget method
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request,response);
 	}
 	
+	/**
+	 * 
+	 * @param request http request for the dopost method
+	 * @param response http response for the dopost method
+	 * @param venueName name of the venue
+	 * @param venueAddress address of the venue
+	 * @param contactNumber contact number of the venue
+	 * @param amenities properties of the venue
+	 * @param venueImage selected image of the venue
+	 * @return boolean of validation status
+	 * @throws ServletException handles request process
+	 * @throws IOException Input/Output Exception fot the dopost method
+	 */
 	private boolean isValidInputs(HttpServletRequest request, HttpServletResponse response, String venueName, String venueAddress, String contactNumber, String amenities, Part venueImage)  throws ServletException, IOException {
 		boolean isValid = true;
 		
@@ -83,6 +106,13 @@ public class VenueManagementController extends HttpServlet {
 		return isValid;
 	}
 	
+	/**
+	 * creates new venue after valdiation and duplciation check
+	 * @param request http request for the dopost method
+	 * @param response http response for the dopost method
+	 * @throws ServletException handles request process
+	 * @throws IOException Input/Output Exception fot the dopost method
+	 */
 	private void createNewVenue(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String venueName = request.getParameter("venue_name");
 		String venueAddress = request.getParameter("address");
@@ -167,6 +197,13 @@ public class VenueManagementController extends HttpServlet {
 		
 	}
 	
+	/**
+	 * updates old venue after valdiation and duplciation check with venue_id check
+	 * @param request http request for the dopost method
+	 * @param response http response for the dopost method
+	 * @throws ServletException handles request process
+	 * @throws IOException Input/Output Exception fot the dopost method
+	 */
 	private void updateVenue(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		
 		//fetch all data
@@ -246,6 +283,13 @@ public class VenueManagementController extends HttpServlet {
 		}
 	}
 	
+	/**
+	 * removes the existing venue through venue id
+	 * @param request http request for the dopost method
+	 * @param response http response for the dopost method
+	 * @throws ServletException handles request process
+	 * @throws IOException Input/Output Exception fot the dopost method
+	 */
 	private void removeVenue(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		String venueIdString = request.getParameter("venue_id");
 		if(venueIdString !=null && !venueIdString.isEmpty()) {
@@ -257,6 +301,13 @@ public class VenueManagementController extends HttpServlet {
 		
 	}
 	
+	/**
+	 * selects all venues from the database and objects
+	 * @param request http request for the dopost method
+	 * @param response http response for the dopost method
+	 * @throws ServletException handles request process
+	 * @throws IOException Input/Output Exception fot the dopost method
+	 */
 	private void allVenues(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		CrudService crudService = new CrudService();
 		List<VenueModel> listVenue = crudService.selectAllVenues();
@@ -264,25 +315,54 @@ public class VenueManagementController extends HttpServlet {
 		request.getRequestDispatcher("/WEB-INF/pages/Admin/venuemanagement.jsp").forward(request, response);
 	}
 	
+	/**
+	 * selects all venues according to the selected id
+	 * @param request http request for the dopost method
+	 * @param response http response for the dopost method
+	 * @throws ServletException handles request process
+	 * @throws IOException Input/Output Exception fot the dopost method
+	 */
 	private void venueById(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		String venueIdString = request.getParameter("venue_id");
 		int venueId = Integer.parseInt(venueIdString);
 		CrudService crudService = new CrudService();
 		VenueModel venue = crudService.selectVenueById(venueId);
 	    request.setAttribute("selectedVenue", venue);
+	    request.setAttribute("action", request.getParameter("action"));
 	    List<VenueModel> listVenue = crudService.selectAllVenues();
 	    request.setAttribute("listVenue", listVenue);
 		request.getRequestDispatcher("/WEB-INF/pages/Admin/venuemanagement.jsp").forward(request, response);
 	}
 	
+	/**
+	 * searches the venue through name or city
+	 * @param request http request for the dopost method
+	 * @param response http response for the dopost method
+	 * @throws ServletException handles request process
+	 * @throws IOException Input/Output Exception fot the dopost method
+	 */
 	private void searchVenue(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		String searchValue = request.getParameter("search_bar");
+		if(searchValue ==null) {
+			CrudService crudService = new CrudService();
+			List<VenueModel> listVenue = crudService.selectAllVenues();
+			request.setAttribute("listVenue", listVenue);
+			request.getRequestDispatcher("/WEB-INF/pages/Admin/venuemanagement.jsp").forward(request, response);
+		}
 		SearchService search = new SearchService();
 		List<VenueModel> searchVenue = search.selectVenueByNameOrCity(searchValue);
 		request.setAttribute("searchVenueList", searchVenue);
 		request.getRequestDispatcher("/WEB-INF/pages/Admin/venuemanagement.jsp").forward(request,response);
 	}
 	
+	/**
+	 * sorts the venue in ascending or descending order with input of sort_bar 
+	 * sorts by venue name
+	 * @param request http request for the dopost method
+	 * @param response http response for the dopost method
+	 * @throws ServletException handles request process
+	 * @throws IOException Input/Output Exception fot the dopost method
+	 */
 	private void sortVenue(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		String sortOrder = request.getParameter("sort_bar");
 		 System.out.println("Sort order: " + sortOrder);

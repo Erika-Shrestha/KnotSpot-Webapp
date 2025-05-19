@@ -2,6 +2,7 @@
  * 
  */
 
+/** the card hover for home page */
 class Card{
 	constructor(cardElement){
 		this.cardElement = cardElement
@@ -21,7 +22,8 @@ class Card{
 		console.log('update')
 			}
 		}
-		
+
+		/** initialized the card according to the class with scroll-based animation */
 function initCards(){
 	const cardElements = document.querySelectorAll('.card')
 	const cards = Array.from(cardElements).map((cardElement) => new Card(cardElement))
@@ -42,7 +44,7 @@ function initCards(){
 
 initCards();
 			
-
+/** scrolls the video for home page according to the scrolling of user */
 function initScrollVideo() {
     const video = document.getElementById('scrollVideo');
     const section = document.querySelector('.video-scroll-section');

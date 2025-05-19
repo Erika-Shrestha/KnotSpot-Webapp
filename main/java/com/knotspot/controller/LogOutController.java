@@ -12,16 +12,21 @@ import java.io.IOException;
 import com.knotspot.util.CookieUtil;
 
 /**
+ * Erika Shrestha
+ * London met id: 23048598
  * Servlet implementation class LogOutController
  */
 @WebServlet(asyncSupported = true, urlPatterns = { "/logout" })
 public class LogOutController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+    
+	/**
+	 * request the logout value from the jsp file
+	 * checks if logout matches with the action
+	 * redirects to login page if equal
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("Logout POST request received");
 		String formAction = request.getParameter("logout");
-		System.out.println("Form action: " + formAction);
 		if("logout".equals(formAction)) {
 			handleLogout(request, response);
 			response.sendRedirect(request.getContextPath()+"/login");
@@ -30,6 +35,13 @@ public class LogOutController extends HttpServlet {
 		
 	}
 	
+	/**
+	 * checks if a session exists by setting as false to avoid creating new one
+	 * if session is not empty then the session/cookie is ended
+	 * @param request http request for the dopost method
+	 * @param response http response for the dopost method
+	 * @throws IOException Input/Output Exception fot the dopost method
+	 */
 	private void handleLogout(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		HttpSession session = request.getSession(false);
 		if(session !=null) {

@@ -12,8 +12,12 @@ import com.knotspot.model.VenueModel;
 
 public class SortService {
 
+	//variable for connection
 	private Connection conn;
 	
+	/**
+	 * a constructor to check if the connection is made
+	 */
 	public SortService() {
 		try {
 			conn = DbConfig.getDbConnection();
@@ -23,10 +27,19 @@ public class SortService {
 		}
 	}
 	
+	/**
+	 * a getconnection 
+	 * @return the database connection
+	 */
 	public Connection getConn() {
 	    return conn;
 	}
 	
+	/**
+	 * a list of venues object sorted by either ascend or descend order
+	 * @param sortOrder values to be sorted
+	 * @return a list of sorted venues
+	 */
 	public List<VenueModel> sortVenues(String sortOrder){
 		
 		List<VenueModel> venues = new ArrayList<>();

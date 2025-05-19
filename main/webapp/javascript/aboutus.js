@@ -1,12 +1,14 @@
 /**
  * 
  */
-
+//select the queries 
 const counters = document.querySelectorAll(".span-text");
 const container = document.querySelector(".mid-div");
 
+//set activated to false
 let activated = false;
 
+//scroll based count activation 
 window.addEventListener("scroll",() => {
 	if(
 		pageYOffset > container.offsetTop - container.offsetHeight - 450

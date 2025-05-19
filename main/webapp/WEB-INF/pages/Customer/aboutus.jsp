@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<!-- This connects to dashboard.css file -->
+<!-- This connects to aboutus.css file -->
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/aboutus.css">
 
 <!-- This gives access to google font "inter" -->

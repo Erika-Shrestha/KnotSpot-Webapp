@@ -10,12 +10,14 @@ import com.knotspot.service.CrudService;
 import com.knotspot.service.ProfileService;
 import com.knotspot.service.RegisterService;
 
+import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.Part;
 
 public class ValidationUtil {
+	
 	/*
-	 * Regular expression (Regex) for email, phone number, password and username
+	 * Regular expression (Regex) for email, phone number, password and username etc
 	 */
 	private static final Pattern EMAIL_PATTERN = Pattern.compile("^[a-zA-Z0-9._%+-]+@gmail\\.com$");
 	private static final Pattern CONTACT_PATTERN = Pattern.compile("^98\\d{8}$");
@@ -177,6 +179,14 @@ public class ValidationUtil {
 		}
 	}
 	
+	/**
+	 * checks which venue input field is selected for try-catch
+	 * @param request incoming request
+	 * @param field the field for which the input is done
+	 * @param value the value of venue
+	 * @param attribute the displayed message 
+	 * @return boolean if the input field is valid or not
+	 */
 	public static boolean checkInputVenueField(HttpServletRequest request, String field, String value, String attribute) {
 		boolean isValid = true;
 		try {
@@ -254,6 +264,14 @@ public class ValidationUtil {
 			}
 		}
 		
+		/**
+		 * gets the duplicated field to be checked for user
+		 * @param field the field for which the input is done
+		 * @param value the value of venue
+		 * @param attribute the displayed message 
+		 * @param conn database connection
+		 * @throws ServletException handles request process
+		 */
 		  public static void getDuplicateField(String field, String value, String attribute,Connection conn) throws SQLException {
 			  if(field.equalsIgnoreCase("contact")) {
 				  RegisterService.isDuplicated(value, attribute, conn);
@@ -266,6 +284,15 @@ public class ValidationUtil {
 			  }
 		  }
 		  
+		  /**
+		   * checks the duplicated input for user
+		   * @param request incoming request
+		   * @param field the field for which the input is done
+		   * @param value the value of venue
+		   * @param attribute the displayed message 
+		   * @param conn database connection
+		   * @return boolean if duplicate is present or not
+		   */
 		  public static boolean checkDuplicate(HttpServletRequest request, String field, String value, String attribute, Connection conn) {
 			  boolean isDuplicate = false;
 			  try {
@@ -279,6 +306,15 @@ public class ValidationUtil {
 			  return isDuplicate;
 		  }
 		  
+		  /**
+		   * gets the duplicated field with user id
+		   * @param field the field for which the input is done
+		   * @param value the value of venue
+		   * @param attribute the displayed message 
+		   * @param conn database connection
+		   * @param userId exclude the user id for the updated venue
+		   * @throws SQLException handles request process
+		   */
 		  public static void getDuplicateField(String field, String value, String attribute, Connection conn, int userId) throws SQLException {
 		        if (field.equalsIgnoreCase("contact")) {
 		            ProfileService.isDuplicated(value, "contact_no", conn, userId);
@@ -289,6 +325,15 @@ public class ValidationUtil {
 		        }
 		    }
 		  
+		  /**
+		   * checks the duplicated input for users with user id
+		   * @param field the field for which the input is done
+		   * @param value the value of venue
+		   * @param attribute the displayed message 
+		   * @param conn database connection
+		   * @param userId exclude the user id for the updated venue
+		   * @return boolean if the duplciate is present or not
+		   */
 		  public static boolean checkDuplicate(HttpServletRequest request, String field, String value, String attribute, Connection conn, int userId) {
 		        boolean isDuplicate = false;
 		        try {
@@ -302,7 +347,14 @@ public class ValidationUtil {
 		    }
 		  
 		  
-		
+		  	/**
+			 * checks which venue input field is selected for try-catch
+			 * @param request incoming request
+			 * @param field the field for which the input is done
+			 * @param value the value of venue
+			 * @param attribute the displayed message 
+			 * @return boolean if the input field is valid or not
+			 */
 			public static boolean checkInputField(HttpServletRequest request, String field, String value, String attribute) {
 				boolean isValid = true;
 				try {
@@ -316,7 +368,15 @@ public class ValidationUtil {
 				return isValid;
 			}
 			
-			
+				/**
+				 * checks the password field input
+				 * @param request incoming request
+				 * @param password the password entered 
+				 * @param retypePassword the retyped password entered
+				 * @param attribute the displayed error message 
+				 * @param username the username entered with password
+				 * @return boolean if password is correct or not
+				 */
 				public static boolean checkPasswordField(HttpServletRequest request, String password, String retypePassword, String attribute, String username) {
 					boolean isValid = true;
 					
@@ -331,6 +391,12 @@ public class ValidationUtil {
 					return isValid;
 				}
 				
+				/**
+				 * checks the image field input
+				 * @param request incoming request
+				 * @param imagePart the image path of the user profile
+				 * @return boolean if image selected is correct or not
+				 */
 				public static boolean checkImageField(HttpServletRequest request, String attribute, Part imagePart) {
 				    boolean isValid = true;
 				    try {

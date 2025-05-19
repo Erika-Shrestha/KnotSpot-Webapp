@@ -5,10 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<!-- This connects to dashboard.css file -->
+<!-- This connects to header.css file -->
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/header.css">
 
-<!-- This connects to dashboard.js file -->
+<!-- This connects to header.js file -->
 <script type="text/javascript" src="${pageContext.request.contextPath}/javascript/header.js"></script>
 
 <!-- This gives access to google font "inter" -->

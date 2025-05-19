@@ -1,132 +1,155 @@
 @charset "UTF-8";
 
+/* Set default font and remove default margin/padding for the whole page */
 body {
     font-family: inter;
     margin: 0;
     padding: 0;
-    background-color: #FEF9F0;
+    background-color: #FEF9F0; 
 }
 
-.header-insight{
-	margin-left: 22%;
-	width: 50%;
-	margin-top: 5rem;
-    text-align: center;
+/* Style for the header section */
+.header-insight {
+    margin-left: 22%;
+    width: 50%;
+    margin-top: 5rem; 
+    text-align: center; 
     padding: 1.25rem;
 }
 
+/* Style for the main title */
 .header-insight h1 {
     margin: 0;
     font-size: 2rem;
     color: #000;
 }
 
+/* Highlighted part of the title */
 .header-insight h1 span {
     color: #ffd700;
 }
 
+/* splits page into main content and sidebar */
 .container {
     display: flex;
     max-width: 75rem;
     margin: 1.25rem auto;
-    gap: 1.25rem;
+    gap: 1.25rem; 
 }
 
+/* Main content section styling */
 .main-content {
-	height: 45rem;
+	height: 45rem; 
     flex: 2;
 }
 
+/* Sidebar section styling */
 .sidebar {
     flex: 1;
-    background-color: #EAD9D2;
-    padding: 0.9375rem;
-    border: 0.125rem solid #4E0707;
-    border-radius: 0.3125rem;
+    background-color: #EAD9D2; 
+    padding: 0.9375rem; 
+    border: 0.125rem solid #4E0707; 
+    border-radius: 0.3125rem; 
 }
 
+/* Style for each blog post */
 .post {
     background-color: #fff;
     border: 0.0625rem solid #ddd;
     border-radius: 0.3125rem;
     overflow: hidden;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.25rem; 
 }
 
-.post.focus{
+/* A larger post format*/
+.post.focus {
 	height: 48.3rem;
 }
 
+/* Blog post image styling */
 .post img {
-    width: 100%;
+    width: 100%; 
     height: 12.5rem;
-    object-fit: cover;
+    object-fit: cover; 
 }
 
+/* Padding inside post content */
 .post-content {
     padding: 0.9375rem;
 }
 
+/* Blog post title */
 .post-content h2 {
-    font-size: 1.125rem;
-    margin: 0 0 0.625rem;
+    font-size: 1.125rem; 
+    margin: 0 0 0.625rem; 
 }
 
+/* Blog post description text */
 .post-content p {
-    font-size: 0.875rem;
-    color: #666;
+    font-size: 0.875rem; 
+    color: #666; 
     margin: 0 0 0.625rem;
 }
 
+/* Read more / link style */
 .post-content a {
 	display: inline-block;
-    text-decoration: none;
-    color: #4E0707;
+    text-decoration: none; 
+    color: #4E0707; 
     font-weight: bold;
-    transition: transform 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out; 
 }
 
+/* Hover effect for link */
 .post-content a:hover {
-	transform: scale(1.1);
+	transform: scale(1.1); 
     text-decoration: underline;
 }
 
-.post .blog-img{
+/* For a blog post with a tall image */
+.post .blog-img {
 	height: 35rem;
 }
 
+/* Sidebar heading */
 .sidebar h3 {
     font-size: 1rem;
     margin: 0 0 0.9375rem;
 }
 
+/* Sidebar post container */
 .sidebar .post {
     margin-bottom: 0.9375rem;
     display: flex;
     gap: 1rem;
 }
 
-.sidebar .post img{
+/* Sidebar image size */
+.sidebar .post img {
 	width: 10rem;
 	height: 10rem;
 }
 
+/* Sidebar post title */
 .sidebar .post-content h2 {
     font-size: 0.875rem;
 }
 
+/* Section for showing all blog posts */
 .all-posts {
     max-width: 75rem;
-    margin: 3rem auto 3rem;
+    margin: 3rem auto 3rem; 
 }
 
+/* Title for all posts section */
 .all-posts h3 {
     font-size: 1.125rem;
     margin-bottom: 2rem;
 }
 
+/* Layout for displaying posts in a grid */
 .posts-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.25rem;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 1.25rem; 
 }

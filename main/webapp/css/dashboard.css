@@ -1,27 +1,33 @@
 @charset "UTF-8";
 
+/* Resets default styles and sets box-sizing and font for all elements */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: inter;
 }
 
-.home h2{
-	margin: 1rem 0rem 0rem 2rem
+/* CSS for h2 in home section with margin */
+.home h2 {
+  margin: 1rem 0rem 0rem 2rem;
 }
 
-
+/* CSS for dashboard layout using grid with two columns */
 .dashboard {
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 1.25rem;
   padding: 2rem;
 }
+
+/* CSS for container of cards with flex layout */
 .cards {
   display: flex;
   gap: 1.25rem;
 }
+
+/* CSS for individual cards with white background and shadow */
 .card {
   background-color: #fff;
   padding: 1.25rem;
@@ -29,22 +35,32 @@
   box-shadow: 0 0.125rem 0.625rem rgba(0, 0, 0, 0.05);
   flex: 1;
 }
+
+/* CSS for dark-themed card with black background and white text */
 .card.dark {
   background-color: #000;
   color: #fff;
 }
+
+/* CSS for card titles with small font and gray color */
 .title {
   font-size: 0.875rem;
   color: gray;
 }
+
+/* CSS for card values with large, bold font */
 .value {
   font-size: 1.5rem;
   font-weight: 700;
 }
+
+/* CSS for change indicators with small font and green color */
 .change {
   font-size: 0.75rem;
   color: #28a745;
 }
+
+/* CSS for chart and graph containers with white background */
 .chart, .graph {
   background-color: #fff;
   border-radius: 0.75rem;
@@ -52,6 +68,8 @@
   margin-top: 1.25rem;
   height: 9.375rem;
 }
+
+/* CSS for venues section spanning all columns */
 .venues {
   grid-column: 1 / -1;
   background: #fff;
@@ -59,54 +77,101 @@
   border-radius: 0.75rem;
   margin-top: 2rem;
 }
+
+/* CSS for venue images with fixed size */
+.venue {
+  width: 5rem;
+  height: 5rem;
+}
+
+/* CSS for tables with full width and collapsed borders */
 table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 0.625rem;
 }
+
+/* CSS for table headers and cells with left-aligned text */
 th, td {
   text-align: left;
   padding: 0.625rem;
 }
+
+/* CSS for table headers with light gray background */
 th {
   background: #f1f1f1;
 }
+
+/* CSS for even table rows with light gray background */
 tr:nth-child(even) {
   background: #f9f9f9;
 }
+
+/* CSS for status badges with padding and rounded corners */
 .badge {
   padding: 0.25rem 0.5rem;
   border-radius: 0.5rem;
   font-size: 0.75rem;
   color: white;
 }
-.high { background: #28a745; }
-.medium { background: #ffc107; }
-.low { background: #dc3545; }
+
+/* CSS for high-priority badge with green background */
+.high {
+  background: #28a745;
+}
+
+/* CSS for medium-priority badge with yellow background */
+.medium {
+  background: #ffc107;
+}
+
+/* CSS for low-priority badge with red background */
+.low {
+  background: #dc3545;
+}
+
+/* CSS for right section with flex column layout */
 .right-section {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
 }
+
+/* CSS for list and stats containers with white background */
 .list, .stats {
   background-color: #fff;
   padding: 1.25rem;
   border-radius: 0.75rem;
 }
+
+/* CSS for register stats section with centered content */
+.stats.register {
+  margin-top: 2rem;
+  width: 50rem;
+  height: 20rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  justify-content: center;
+  align-items: center;
+}
+
+/* CSS for h4 in register stats with top margin */
+.stats.register h4 {
+  margin-top: 1rem;
+}
+
+/* CSS for list items with flex layout and spacing */
 .list-item {
   display: flex;
   align-items: center;
   margin-bottom: 0.625rem;
 }
+
+/* CSS for images in list items with circular shape */
 .list-item img {
   width: 1.875rem;
   height: 1.875rem;
   border-radius: 50%;
   margin-right: 0.625rem;
-}
-.revenue-line {
-  width: 100%;
-  height: 6.25rem;
-  background: linear-gradient(to right, #28a745, #000);
-  border-radius: 0.75rem;
 }

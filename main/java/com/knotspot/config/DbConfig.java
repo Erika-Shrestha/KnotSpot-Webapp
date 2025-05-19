@@ -11,10 +11,16 @@ public class DbConfig {
 	private static final String username = "root";
 	private static final String password = "";
 	
+	/**
+	 * establish database connection and driver
+	 * @return the connection with url, username and password for the specific database "knotspot"
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
+	 */
 	public static Connection getDbConnection() throws SQLException, ClassNotFoundException {
-		//step 1:register the driver
+		//register the driver
 		Class.forName("com.mysql.cj.jdbc.Driver");	
-		//step 2: establish connection
+		//establish connection
 		return DriverManager.getConnection(url, username, password);
 	}
 }

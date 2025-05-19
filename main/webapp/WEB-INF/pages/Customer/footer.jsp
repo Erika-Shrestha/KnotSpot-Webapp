@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<!-- This connects to dashboard.css file -->
+<!-- This connects to footer.css file -->
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/footer.css">
 
 <!-- This gives access to google font "inter" -->

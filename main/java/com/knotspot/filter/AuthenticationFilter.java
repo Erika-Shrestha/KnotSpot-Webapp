@@ -20,7 +20,8 @@ import com.knotspot.util.SessionUtil;
  */
 @WebFilter(asyncSupported = true, urlPatterns = "/*")
 public class AuthenticationFilter implements Filter {
-       
+    
+	//all variables that store the url pattern
 	private static final String login = "/login";
 	private static final String logout = "/logout";
 	private static final String dashboard = "/dashboard";
@@ -36,6 +37,9 @@ public class AuthenticationFilter implements Filter {
 	private static final String task = "/task";
 	private static final String setting = "/setting";
 	
+	/**
+	 * this method provides a central hub for accessing all the url according to the roles stored by cookie
+	 */
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		HttpServletRequest req = (HttpServletRequest) request;
 	    HttpServletResponse res = (HttpServletResponse) response;
@@ -100,7 +104,11 @@ public class AuthenticationFilter implements Filter {
 		    
 		
 	}
-
+	
+	/**
+	 * a helper method for caching controls in the website
+	 * @param res
+	 */
 	private void avoidBackArrow(HttpServletResponse res) {
 	    res.setHeader("Cache-Control", "no-store, no-cache, must-revalidate, max-age=0");
 	    res.setHeader("Pragma", "no-cache");

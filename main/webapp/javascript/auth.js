@@ -2,6 +2,7 @@
  * 
  */
 
+//performs the shift between registration and form page
 function formToggle(){
 	const container = document.querySelector('.main-container');
 	const registerBtn = document.querySelector('.register-btn');

@@ -1,206 +1,250 @@
 @charset "UTF-8";
 
-*{
-	font-family: inter;
-	margin:0;
-	padding:0;
+/* Resets margins, padding, and sets font */
+* {
+    font-family: inter;
+    margin: 0;
+    padding: 0;
 }
 
-body{
-	overflow:hidden;
+/* CSS for body with hidden overflow */
+body {
+    overflow: hidden;
 }
 
-main{
-	position: relative;
-	display: flex;
-	align-items: center;
-	background: rgba(254,249,240);
-	height: 42.3rem;
+/* CSS for main section with flex layout */
+main {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: rgba(254,249,240);
+    height: 42.3rem;
 }
 
-.user-con{
-	margin-top: 5rem;
-	width:100%;
-	height: 33rem;
-	background: #4E0707;
-	border-radius: 5rem 5rem 0rem 0rem;
-	padding: 2rem;
-	box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.1);
-  	transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* CSS for user container with dark red background */
+.user-con {
+    margin-top: 5rem;
+    width: 100%;
+    height: 33rem;
+    background: #4E0707;
+    border-radius: 5rem 5rem 0rem 0rem;
+    padding: 2rem;
+    box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.user-con:hover{
-	transform: scale(1.02);
-  	box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.2);
+/* CSS for user container on hover */
+.user-con:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.2);
 }
 
-.fst-sub-con{
-	position: relative;
-   	display: flex;
-   	align-items: center;
-   	gap: 1.5rem;
-   	margin-bottom: 2rem;
- }
-
- .fst-sub-con img{
-   	width: 8rem;
-   	height: 8rem;
-   	border-radius: 50%;
-   	object-fit: cover;
+/* CSS for first sub-container with flex layout */
+.fst-sub-con {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
 }
 
-.arrow{
-	position: absolute;
-	display: flex;
-	top: 4%;
-	left: 5%;
-	font-size: 1.1rem;
-	cursor: pointer;
+/* CSS for profile image */
+.fst-sub-con img {
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
-a{
-	display: flex;
-	gap: 1.2rem;
-	text-decoration: none;
-	color: black;
+/* CSS for arrow icon */
+.arrow {
+    position: absolute;
+    display: flex;
+    top: 4%;
+    left: 5%;
+    font-size: 1.1rem;
+    cursor: pointer;
 }
 
-.file-box{
-  display: none;
+/* CSS for links */
+a {
+    display: flex;
+    gap: 1.2rem;
+    text-decoration: none;
+    color: black;
 }
 
-.buttons{
-	position: absolute;
-	display: flex;
-	gap: 1rem;
-	top: 5%;
-	left: 12%;
+/* Hides file input */
+.file-box {
+    display: none;
 }
 
-p{
-	font-size: 0.7rem;
-	margin-top: 3.5rem;
-	line-height: 1.2rem;
-	color: white;
+/* CSS for buttons container */
+.buttons {
+    position: absolute;
+    display: flex;
+    gap: 1rem;
+    top: 5%;
+    left: 12%;
 }
 
-.upload-file{
-	width: 8rem;
-	height: 2.5rem;
+/* CSS for paragraph text */
+p {
+    font-size: 0.7rem;
+    margin-top: 3.5rem;
+    line-height: 1.2rem;
+    color: white;
 }
 
-button{
-	width: 8rem;
-	height: 2rem;
-	margin-top: 1rem;
-	background-color: black;
-	color:white;
-	border-radius: 0.7rem;
-	box-shadow: 0 0 0.5rem rgba(0,0,0,0.1);
-	border: none;
-	outline: none;
-	cursor: pointer;
+/* CSS for file upload button */
+.upload-file {
+    width: 8rem;
+    height: 2.5rem;
 }
 
-.thd-sub-con{
-	display: flex;
-	gap: 1rem;
-	width: 17rem;
-	margin-top: 2rem;
-	margin-left: 50rem;
+/* CSS for general buttons */
+button {
+    width: 8rem;
+    height: 2rem;
+    margin-top: 1rem;
+    background-color: black;
+    color: white;
+    border-radius: 0.7rem;
+    box-shadow: 0 0 0.5rem rgba(0,0,0,0.1);
+    border: none;
+    outline: none;
+    cursor: pointer;
 }
 
-.change-btn{
-	display: inline-block;
-	margin-top: 1rem;
-	background: #007BFF;
-	padding: 0.5rem 0.8rem;
-	font-size: 0.8rem;
-	color:white;
-	border-radius: 0.7rem;
-	box-shadow: 0 0 0.5rem rgba(0,0,0,0.1);
-	border: none;
-	outline: none;
-	cursor: pointer;
+/* CSS for third sub-container */
+.thd-sub-con {
+    display: flex;
+    gap: 1rem;
+    width: 17rem;
+    margin-top: 2rem;
+    margin-left: 50rem;
 }
 
-.del-btn{
-	background: #4E0707;
-	border: 0.1rem solid #FFF;
+/* CSS for change button */
+.change-btn {
+    display: inline-block;
+    margin-top: 1rem;
+    background: #007BFF;
+    padding: 0.5rem 0.8rem;
+    font-size: 0.8rem;
+    color: white;
+    border-radius: 0.7rem;
+    box-shadow: 0 0 0.5rem rgba(0,0,0,0.1);
+    border: none;
+    outline: none;
+    cursor: pointer;
 }
 
+/* CSS for delete button */
+.del-btn {
+    background: #4E0707;
+    border: 0.1rem solid #FFF;
+}
+
+/* CSS for cancel button */
 .cancel-btn {
-  	background: #f0f0f0;
-  	color: black;
+    background: #f0f0f0;
+    color: black;
 }
 
+/* CSS for save button */
 .save-btn {
-  	background: #fce96a;
-  	color: black;
+    background: #fce96a;
+    color: black;
 }
 
-.sec-sub-con{
-  	display: flex;
-  	flex-direction: column;
-  	width: 75%;
-  	margin: 0 auto;
+/* CSS for second sub-container */
+.sec-sub-con {
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    margin: 0 auto;
 }
 
+/* CSS for detail row grid layout */
 .detail-row {
-	display: grid;
-	grid-template-columns: 9rem 0.4rem 1fr;
-	padding: 0.8rem 0.4rem;
+    display: grid;
+    grid-template-columns: 9rem 0.4rem 1fr;
+    padding: 0.8rem 0.4rem;
 }
 
+/* CSS for light background row */
 .detail-row.light {
-  	background-color: #f0f0f0;
+    background-color: #f0f0f0;
 }
 
-.field{
-	margin-left: 10rem;
+/* CSS for field positioning */
+.field {
+    margin-left: 10rem;
 }
 
-.colon{
-	margin-left: 15rem;
+/* CSS for colon positioning */
+.colon {
+    margin-left: 15rem;
 }
 
-.inputs{
-	width: 10rem;
-	margin-left: 25rem;
+/* CSS for input fields */
+.inputs {
+    width: 10rem;
+    margin-left: 25rem;
 }
 
-.input-name{
-	display: flex;
-	gap:0.4rem;
-	width: 10rem;
-	margin-left: 25rem;
+/* CSS for name input container */
+.input-name {
+    display: flex;
+    gap: 0.4rem;
+    width: 10rem;
+    margin-left: 25rem;
 }
 
-.input-name input{
-	width: 10rem;
-	border: none;
+/* CSS for name input fields */
+.input-name input {
+    width: 10rem;
+    border: none;
 }
 
-input{
-	background: transparent;
-	border: none;
+/* CSS for all input fields */
+input {
+    background: transparent;
+    border: none;
 }
 
+/* CSS for white background row */
 .detail-row.white {
-  	background-color: #fcfcfc;
+    background-color: #fcfcfc;
 }
 
-.errorDisplay{
-	display: flex;
-	position: absolute;
-	width: 10rem;
-	height: 1rem;
-	justify-content: center;
-	align-items: center;
-	border-radius: 0.1rem;
-	font-size: 0.5rem;
-	background-color: #FDCAC4;
-	color: #ED6160;
-	top: 30%;
-	left: 70%;
+/* CSS for error triangle */
+.errorDisplay::before {
+    content: "";
+    width: 0rem;
+    height: 0rem;
+    border-left: 0.35rem solid transparent;
+    border-right: 0.35rem solid transparent;
+    border-top: 0.7rem solid #FDCAC4;
+    position: absolute;
+    bottom: -50%;
+    left: 10%;
+}
+
+/* CSS for error message box */
+.errorDisplay {
+    display: flex;
+    position: absolute;
+    width: 8rem;
+    height: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.1rem;
+    font-size: 0.5rem;
+    background-color: #FDCAC4;
+    color: #ED6160;
+    top: 30%;
+    left: 70%;
+    padding: 1rem;
 }

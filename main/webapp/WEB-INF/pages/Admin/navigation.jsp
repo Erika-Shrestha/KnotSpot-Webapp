@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>Knot Spot</title>
 
-<!-- This connects to venuemanagement.css file -->
+<!-- This connects to navigation.css file -->
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/navigation.css">
 
 
@@ -37,7 +37,7 @@
 		</header>
 		
 		<div class="user-display">
-			<img src="${pageContext.request.contextPath}/resources/${userModel.profilePic}" alt="user-profile" class="user-image">
+			<a href="${pageContext.request.contextPath}/profile"><img src="${pageContext.request.contextPath}/resources/${userModel.profilePic}" alt="user-profile" class="user-image"></a>
 			<h2>${userModel.firstName} ${userModel.lastName}</h2>
 			<div class="review">
 				<i class="fa fa-star" aria-hidden="true"></i>
@@ -61,19 +61,19 @@
 						</a>
 					</li>
 					<li class="nav-link">
-						<a href="${pageContext.request.contextPath}/calendar">
+						<a href="${pageContext.request.contextPath}/task">
 							<i class="fa fa-calendar icon" aria-hidden="true"></i>
 							<span class="text nav-text">Calendar</span>
 						</a>
 					</li>
 					<li class="nav-link">
-						<a  href="${pageContext.request.contextPath}/analytics">
+						<a  href="${pageContext.request.contextPath}/analytic">
 							<i class="fa fa-file-text icon" aria-hidden="true"></i>
 							<span class="text nav-text">Report</span>
 						</a>
 					</li>
 					<li class="nav-link">
-						<a href="#">
+						<a href="${pageContext.request.contextPath}/setting">
 							<i class="fa fa-cogs icon" aria-hidden="true"></i>
 							<span class="text nav-text">System preference</span>
 						</a>

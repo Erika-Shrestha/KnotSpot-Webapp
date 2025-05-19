@@ -1,0 +1,144 @@
+@charset "UTF-8";
+
+/* Adds padding around the main home section */
+.home {
+    padding: 4rem;
+}
+
+/* CSS for the tasks container with padding and rounded corners */
+.tasks {
+    padding: 1.25rem;
+    border-radius: 0.5rem;
+}
+
+/* CSS for size and spacing of main headings */
+h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+}
+
+/* Creates a flexbox layout for tabs with a bottom border */
+.tabs {
+    display: flex;
+    border-bottom: 0.0625rem solid #ccc;
+    margin-bottom: 1.25rem;
+}
+
+/* CSS for individual tabs with padding and color */
+.tab {
+    padding: 0.625rem 1.25rem;
+    text-decoration: none;
+    color: #666;
+    font-size: 1rem;
+}
+
+/* CSS for the active tab with black text and a blue border */
+.tab.active {
+    color: #000;
+    border-bottom: 0.125rem solid #007bff;
+}
+
+/* Makes tab content visible */
+.tab-content {
+    display: block;
+}
+
+/* CSS for spacing and font size of paragraphs in tab content */
+.tab-content p {
+    margin: 0.625rem 0;
+    font-size: 0.875rem;
+}
+
+/* Adds spacing below each task section */
+.task-section {
+    margin-bottom: 1.25rem;
+}
+
+/* CSS for task section headings with size, padding, and white text */
+.task-section h3 {
+    font-size: 1.125rem;
+    padding: 0.3125rem 0.625rem;
+    border-radius: 0.25rem;
+    color: #fff;
+}
+
+/* CSS for the "To Do" task section header with green background */
+.task-section .todo {
+    background-color: #28a745;
+    display: inline-block;
+    width: 6rem;
+}
+
+/* CSS for the "In Progress" task section header with blue background */
+.task-section .in-progress {
+    background-color: #007bff;
+    display: inline-block;
+    width: 8rem;
+}
+
+/* CSS for the "Done" task section header with purple background */
+.task-section .done {
+    background-color: #6f42c1;
+    display: inline-block;
+    width: 6rem;
+}
+
+/* CSS for individual tasks with white background, border, and flex layout */
+.task {
+    background-color: #fff;
+    padding: 0.625rem;
+    border: 0.0625rem solid #ddd;
+    border-radius: 0.25rem;
+    margin: 0.625rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Removes margin from task paragraphs */
+.task p {
+    margin: 0;
+}
+
+/* CSS for task timestamps with small font and gray color */
+.task span {
+    font-size: 0.75rem;
+    color: #666;
+}
+
+/* CSS for the "Add Task" link with blue text and no underline */
+.add-task {
+    text-decoration: none;
+    color: #007bff;
+    font-size: 0.875rem;
+}
+
+/* CSS for notifications with a semi-transparent purple background and border */
+.notification {
+    background-color: rgba(105, 92, 254, 0.5);
+    padding: 0.625rem;
+    border: 0.0625rem solid #ddd;
+    border-radius: 0.25rem;
+    margin: 0.625rem 0;
+}
+
+/* Aligns notification text and icons vertically */
+.notification p {
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+/* CSS for star icons with gold color and spacing */
+.star {
+    color: #ffd700;
+    margin-right: 0.3125rem;
+}
+
+/* CSS for the "Clear" button with blue text and right alignment */
+.clear-btn {
+    text-decoration: none;
+    color: #007bff;
+    float: right;
+    margin-bottom: 0.625rem;
+}

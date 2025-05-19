@@ -1,51 +1,59 @@
 @charset "UTF-8";
 
-*{
+/* Reset margin and set default font */
+* {
 	margin: 0rem;
 	font-family: inter;
 }
 
-body{
+/* Set full body width and background */
+body {
 	width: 100%;
 	min-height: 90rem;
 	background-color: #FEF9F0;
 }
 
-header{
+/* Header background */
+header {
 	background-color: white;
 }
 
-.about-main-container{
+/* Main container for the about us section */
+.about-main-container {
 	display: flex;
 	flex-direction: column;
 	height: 85rem;
 	gap: 1rem;
-
 }
 
-@keyframes appear{
-	from{
+/* Animation that fades and scales up content */
+@keyframes appear {
+	from {
 		opacity: 0;
 		scale: 0.5;
 	}
-	to{
+	to {
 		opacity: 1;
 		scale: 1;
 	}
 }
 
-.about-main-container .mid-div, .about-main-container .bottom-div{
+/* Apply animation to middle and bottom sections on scroll */
+.about-main-container .mid-div,
+.about-main-container .bottom-div {
 	animation: appear linear;
 	animation-timeline: view();
 	animation-range: entry 0;
 	overflow: hidden;
 }
 
-.about-main-container .top-div{
+/* Apply animation to top section on load */
+.about-main-container .top-div {
 	animation: appear 0.9s ease-out forwards;
 }
 
-.top-div{
+/* Top section layout */
+.top-div {
 	width: 100%;
 	height: 30rem;
 	display: flex;
@@ -53,44 +61,50 @@ header{
 	margin-top: 3rem;
 }
 
-.sub-div-one{
+/* Left side text area */
+.sub-div-one {
 	width: 50%;
 	height: 100%;
 	font-size: 1.8rem;
-	
 }
 
-.sub-div-one h1{
+/* Main heading */
+.sub-div-one h1 {
 	margin: 2rem 0rem 0rem 5rem;
 }
 
-.sub-div-one h2{
+/* Subheading styling */
+.sub-div-one h2 {
 	font-weight: 800;
 	margin: 0.2rem 0rem 0rem 5rem;
 }
 
-.first-img-con{
+/* First image container (left image) */
+.first-img-con {
 	position: absolute;
-	top:24%;
+	top: 24%;
 	left: 14%;
 	width: 46%;
 	height: 18rem;
 	border-radius: 0.8rem;
 }
 
-.venue-one{
-	width:100%;
+/* Image inside first image container */
+.venue-one {
+	width: 100%;
 	height: 100%;
 	border-radius: 0.8rem;
 }
 
-.sub-div-two{
+/* Right side text area */
+.sub-div-two {
 	width: 50%;
 	height: 100%;
 	font-size: 1.5rem;
 }
 
-.sec-img-con{
+/* Second image container (right image) */
+.sec-img-con {
 	position: absolute;
 	top: 24%;
 	left: 66%;
@@ -99,7 +113,8 @@ header{
 	border-radius: 0.8rem;
 }
 
-.desc-div{
+/* Text description box beside second image */
+.desc-div {
 	position: absolute;
 	top: 61%;
 	left: 66%;
@@ -108,20 +123,23 @@ header{
 	font-size: 0.7rem;
 }
 
-.desc-div h1{
+/* Heading inside description box */
+.desc-div h1 {
 	font-size: 1.75rem;
 	text-align: center;
 	font-weight: 500;
 	margin-bottom: 1.2rem;
 }
 
-.desc-div p{
+/* Paragraph inside description box */
+.desc-div p {
 	font-weight: 500;
 	text-align: center;
 	line-height: 1.5rem;
 }
 
-.mid-div{
+/* Middle section layout */
+.mid-div {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -130,18 +148,21 @@ header{
 	margin-top: 2rem;
 }
 
-.bottom-div{
+/* Bottom section layout */
+.bottom-div {
 	width: 100%;
 	height: 35rem;
 	margin-top: 4rem;
 }
 
-.mid-div p{
+/* Paragraph in middle section */
+.mid-div p {
 	font-weight: 600;
 	font-size: 1.2rem;
 }
 
-.span-text{
+/* Highlighted text span */
+.span-text {
 	display: block;
 	position: absolute;
 	top: 1%;
@@ -155,8 +176,8 @@ header{
 	color: #EAD9D2;
 }
 
-
-.bottom-div{
+/* Bottom container with mission and vision sections */
+.bottom-div {
 	display: flex;
 	flex-direction: column;
 	gap: 2rem;
@@ -164,7 +185,8 @@ header{
 	height: 35rem;
 }
 
-.mission-div{
+/* Mission section layout */
+.mission-div {
 	width: 100%;
 	height: 50%;
 	display: flex;
@@ -173,7 +195,8 @@ header{
 	align-items: center;
 }
 
-.vision-div{
+/* Vision section layout */
+.vision-div {
 	width: 100%;
 	height: 50%;
 	display: flex;
@@ -182,55 +205,67 @@ header{
 	align-items: center;
 }
 
-.mission-txt{
+/* Mission text area */
+.mission-txt {
 	width: 40%;
 	height: 90%;
 }
 
-.mission-img-con{
+/* Mission image container */
+.mission-img-con {
 	width: 30%;
 	height: 80%;
 	background-color: #4E0707;
 }
 
-.mission-img{
+/* Mission image positioning */
+.mission-img {
 	position: absolute;
-	top:8%;
+	top: 8%;
 	left: 10.3%;
 }
 
-.img-one{
-	width : 32%;
+/* Mission image size */
+.img-one {
+	width: 32%;
 }
 
-.vision-txt{
+/* Vision text area */
+.vision-txt {
 	width: 40%;
 	height: 90%;
 }
 
-.vision-img-con{
+/* Vision image container */
+.vision-img-con {
 	width: 30%;
 	height: 80%;
 	background-color: #4E0707;
 }
 
-.vision-img{
+/* Vision image positioning */
+.vision-img {
 	position: absolute;
 	width: 40%;
 	left: 61%;
 	top: 60%;
 }
 
-.img-two{
-	width : 72%;
+/* Vision image size */
+.img-two {
+	width: 72%;
 }
 
-.mission-txt h1, .vision-txt h1{
+/* Headings inside mission and vision text */
+.mission-txt h1,
+.vision-txt h1 {
 	font-size: 1.5rem;
 	margin-bottom: 1.5rem;
 }
 
-.mission-txt p, .vision-txt p{
+/* Paragraphs inside mission and vision text */
+.mission-txt p,
+.vision-txt p {
 	font-size: 0.9rem;
 	line-height: 1.5rem;
 }

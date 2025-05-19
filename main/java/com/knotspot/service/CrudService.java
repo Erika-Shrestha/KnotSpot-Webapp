@@ -13,8 +13,12 @@ import com.knotspot.model.VenueModel;
 
 public class CrudService {
 
+	//variable for connection
 	private Connection conn;
 	
+	/**
+	 * a constructor to check if the connection is made
+	 */
 	public CrudService() {
 		try {
 			conn = DbConfig.getDbConnection();
@@ -24,11 +28,19 @@ public class CrudService {
 		}
 	}
 	
+	/**
+	 * a getconnection 
+	 * @return the database connection
+	 */
 	public Connection getConn() {
 	    return conn;
 	}
 	
-	//add query for venue table
+	/**
+	 * add query for venue table
+	 * @param venues object for the venue model
+	 * @return the venues
+	 */
 	public VenueModel addVenue(VenueModel venues) {
 		if(conn == null) {
 			System.out.println("DB connection failed");
@@ -69,7 +81,11 @@ public class CrudService {
 		
 	}
 	
-	//update query for venue table
+	/**
+	 * update query for venue table
+	 * @param venueId the id of venue
+	 * @return boolean to delete the venue or not
+	 */
 	public boolean deleteVenue(int venueId) {
 		if(conn == null) {
 			System.out.println("DB connection failed");
@@ -100,7 +116,11 @@ public class CrudService {
 		
 	}
 	
-	//query to update venue table
+	/**
+	 * query to update venue table
+	 * @param venues object for the venue model
+	 * @return the venues
+	 */
 	public VenueModel updateVenue(VenueModel venues) {
 		if(conn == null) {
 			System.out.println("DB connection failed");
@@ -157,7 +177,9 @@ public class CrudService {
 	
 	}
 	
-	
+	/**
+	 * a data query to select all the venues and store in a list
+	 */
 	public List<VenueModel> selectAllVenues() {
 		List<VenueModel> venues = new ArrayList<>();
 		if(conn == null) {
@@ -195,6 +217,11 @@ public class CrudService {
 		return venues;
 	}
 	
+	/**
+	 * to display the venue with the id 
+	 * @param venueId the selected venue id
+	 * @return venue with the respective id
+	 */
 	public VenueModel selectVenueById(int venueId) {
 		if(conn == null) {
 			System.out.println("DB connection failed");
@@ -231,7 +258,14 @@ public class CrudService {
 		return venue;
 	}
 	
-	//Check duplicates
+	/**
+	 * Check duplicates
+	 * @param field the field for which duplciate is checked
+	 * @param attribute to display the named message
+	 * @param conn to show the connection of database
+	 * @return boolean if the input is duplciate or not
+	 * @throws SQLException handles request process
+	 */
 	public static boolean isDuplicated(String field, String attribute, Connection conn) throws SQLException{
 		PreparedStatement ps = conn.prepareStatement("SELECT venue_id FROM venues WHERE "+attribute +" = ?");
 		ps.setString(1, field);
@@ -242,7 +276,15 @@ public class CrudService {
 		return false;
 	}
 	
-	//Check duplicates excluding the current venue
+	/**
+	 * Check duplicates excluding the current venue
+	 * @param field the field for which duplciate is checked
+	 * @param attribute to display the named message
+	 * @param conn to show the connection of database
+	 * @param venueId id for which the duplicate is not checked on
+	 * @return boolean if the input is duplciate or not
+	 * @throws SQLException handles request process
+	 */
     public static boolean isDuplicated(String field, String attribute, Connection conn, int venueId) throws SQLException {
         String query = "SELECT venue_id FROM venues WHERE " + attribute + " = ? AND venue_id != ?";
         try (PreparedStatement ps = conn.prepareStatement(query)) {

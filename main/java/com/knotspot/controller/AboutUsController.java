@@ -8,6 +8,8 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
+ * Erika Shrestha
+ * London met id: 23048598
  * Servlet implementation class AboutUsController
  */
 @WebServlet(asyncSupported = true, urlPatterns = { "/aboutUs" })
@@ -15,12 +17,16 @@ public class AboutUsController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     
-
+	/**
+	 * forwards the request to a about us JSP file
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("/WEB-INF/pages/Customer/aboutus.jsp").forward(request,response);
 	}
 
-
+	/**
+	 * calls the doget method 
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}

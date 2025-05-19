@@ -1,320 +1,415 @@
 @charset "UTF-8";
 
-.search-con{
-	display: flex;
-	width: 100%;
-	height: 3rem;
-	align-items: center;
-	position: relative;
-	border-bottom: 0.1rem solid grey;
+/* Styles for the search container at the top */
+.search-con {
+    display: flex;
+    width: 100%;
+    height: 3rem;
+    align-items: center;
+    position: relative;
+    border-bottom: 0.1rem solid grey;
 }
 
-.search-con.search{
-	border:none;
-	margin-left: 3rem;
-	margin-top: 0;
-	width: 15rem;
+/* Specific styles for the search input container */
+.search-con.search {
+    border: none;
+    margin-left: 3rem;
+    margin-top: 0;
+    width: 20rem;
 }
 
-.search-con.search i{
-	left: 85%;
+/* Ensures the home section does not overflow horizontally */
+.home {
+    overflow-x: hidden;
 }
 
-.search-con input{
-	width: 10rem;
-	font-size: 0.8rem;
-	padding: 0.3rem 2rem 0.3rem 1rem;
-	border-radius: 0.5rem;
-	border: none;
-	box-shadow: 0rem 0.1rem 0.1rem 0.1rem rgba(0,0,0,0.2);
-	margin-left: 4rem;
+/* Positions the search icon within the search input container */
+.search-con.search i {
+    left: 85%;
 }
 
-.search-con input:focus{
-	outline: none;
+/* Styles for the search input field */
+.search-con input {
+    width: 10rem;
+    font-size: 0.8rem;
+    padding: 0.3rem 2rem 0.3rem 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    box-shadow: 0rem 0.1rem 0.1rem 0.1rem rgba(0,0,0,0.2);
+    margin-left: 4rem;
 }
 
-.search-con i{
-	position: absolute;
-	top: 35%;
-	left: 16%;
-	font-size: 0.8rem;
-	color: grey;
-	cursor: pointer;
+/* Removes the outline when the search input is focused */
+.search-con input:focus {
+    outline: none;
 }
 
-.search-con input::placeholder{
-	font-size: 0.7rem;
+/* Positions the search icon inside the search input */
+.search-con.search i {
+    position: absolute;
+    top: 35%;
+    left: 62%;
+    font-size: 0.8rem;
+    color: grey;
+    cursor: pointer;
 }
 
+/* Styles the placeholder text in the search input */
+.search-con input::placeholder {
+    font-size: 0.7rem;
+}
+
+/* Styles the clear search button */
+.search-con.search .clear-search {
+    width: 10rem;
+    height: 2rem;
+    border-radius: 0.7rem;
+    border: none;
+    background: #695CFE;
+    color: #E4E9F7;
+    padding: 0.4rem;
+    margin-left: 1rem;
+    cursor: pointer;
+    font-size: 0.6rem;
+}
+
+/* Styles the notification bell link */
 .notify-link {
-	position: absolute;
-	right: 1%;
-	width: 5rem;
-	height: 5rem;
+    position: absolute;
+    right: 1%;
+    width: 5rem;
+    height: 5rem;
 }
 
-.notify-link .icon{
-	font-size: 1.5rem;
+/* Styles the notification bell icon */
+.notify-link .icon {
+    font-size: 1.5rem;
 }
 
-.venue-title{
-	width: 20rem;
-	height: 1rem;
-	margin: 2rem 0rem 1rem 5rem;
+/* Styles the venue title section */
+.venue-title {
+    width: 20rem;
+    height: 1rem;
+    margin: 2rem 0rem 1rem 5rem;
 }
 
-.venue-title label{
-	font-size: 1.5rem;
-	font-weight: 500;
-	
+/* Styles the venue title label */
+.venue-title label {
+    font-size: 1.5rem;
+    font-weight: 500;
 }
 
-.filters{
-	display: flex;
-	gap: 1rem;
-	align-items: center;
+/* Container for search, sort, and add button filters */
+.filters {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
 }
 
-.sort{
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap:0.8rem;
-	width: 7rem;
-	height: 1.8rem;
-	background: #FFF;
-	border-radius: 0.5rem;
-	box-shadow: 0rem 0.05rem 0.05rem 0.05rem rgba(0,0,0,0.2);
+/* Styles the sort dropdown container */
+.sort {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    width: 7rem;
+    height: 1.8rem;
+    background: #FFF;
+    border-radius: 0.5rem;
+    box-shadow: 0rem 0.05rem 0.05rem 0.05rem rgba(0,0,0,0.2);
 }
 
-.sort.combo{
-	border: none;
+/* Removes border for the sort dropdown */
+.sort.combo {
+    border: none;
 }
 
+/* Container for the venue table */
 .table-container {
-	width: 50rem;
-	padding: 1rem;
-	margin-top: 2rem;
+    width: 50rem;
+    padding: 1rem;
+    margin-top: 2rem;
 }
 
+/* Styles the venue table */
 .venue-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.875rem; 
-  background: #FFF;
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+    background: #FFF;
 }
 
-.venues{
-	width: 5rem;
-	height: 5rem;
+/* Styles venue images in the table */
+.venues {
+    width: 5rem;
+    height: 5rem;
 }
 
+/* Styles table headers and cells */
 .venue-table th,
 .venue-table td {
-  padding: 0.75rem 1rem;
-  text-align: left;
-  border-bottom: 1px solid #eee;
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
 }
 
+/* Styles the table header background */
 .venue-table thead {
-  background-color: #f9f9f9;
+    background-color: #f9f9f9;
 }
 
+/* General styles for status badges */
 .badge {
-  padding: 0.25rem 0.625rem; 
-  border-radius: 0.75rem; 
-  font-size: 0.75rem; 
-  font-weight: bold;
-  display: inline-block;
-  color: white;
+    padding: 0.25rem 0.625rem;
+    border-radius: 0.75rem;
+    font-size: 0.75rem;
+    font-weight: bold;
+    display: inline-block;
+    color: white;
 }
 
+/* Styles for high-priority (available) badges */
 .badge.high {
-  background-color: #4CAF50;
+    background-color: #4CAF50;
 }
 
+/* Styles for medium-priority badges */
 .badge.medium {
-  background-color: #FFC107;
-  color: black;
+    background-color: #FFC107;
+    color: black;
 }
 
+/* Styles for low-priority (non-available) badges */
 .badge.low {
-  background-color: #F44336;
+    background-color: #F44336;
 }
 
+/* Styles for user avatars */
 .avatar {
-  width: 1.875rem; 
-  height: 1.875rem; 
-  border-radius: 50%;
-  object-fit: cover;
+    width: 1.875rem;
+    height: 1.875rem;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
-.actions{
-  width: 100%;
-  height: 8rem;
-  display: flex;
-  flex-direction: row;
-  gap: 0.6rem;
-  justify-content: center;
-  align-items: center;
+/* Container for action buttons (edit, view, delete) */
+.actions {
+    width: 100%;
+    height: 8rem;
+    display: flex;
+    flex-direction: row;
+    gap: 0.6rem;
+    justify-content: center;
+    align-items: center;
 }
 
+/* Styles for action buttons */
 .actions button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 1rem;
-  margin-right: 0.3125rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-right: 0.3125rem;
 }
 
+/* Styles the view panel (sidebar for venue details) */
 .view-panel {
-  position: fixed;
-  top: 0;
-  right: -100%;
-  width: 20rem;
-  height: 100vh;
-  background: #fff;
-  box-shadow: -0.2rem 0 0.5rem rgba(0, 0, 0, 0.2);
-  z-index: 1000;
-  transition: right 0.3s ease-in-out;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 20rem;
+    height: 100vh;
+    background: #fff;
+    box-shadow: -0.2rem 0 0.5rem rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: right 0.3s ease-in-out;
 }
 
-.view-panel.open {
-  right: 0;
+/* Shows the view panel when active */
+.view-panel.show {
+    right: 0;
 }
 
+/* Styles the content inside the view panel */
 .panel-content {
-  padding: 1.5rem;
+    padding: 1.5rem;
 }
 
+/* Styles the close button for the view panel */
 .close-btn {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  font-size: 1.5rem;
-  cursor: pointer;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
 }
 
-.add-btn{
-	width: 2rem;
-	height: 2rem;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background: #FFF;
-	border-radius: 0.5rem;
-	border: none;
-	box-shadow: 0rem 0.05rem 0.05rem 0.05rem rgba(0,0,0,0.2);
-	cursor: pointer;
-	
+/* Styles the add venue button */
+.add-btn {
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #FFF;
+    border-radius: 0.5rem;
+    border: none;
+    box-shadow: 0rem 0.05rem 0.05rem 0.05rem rgba(0,0,0,0.2);
+    cursor: pointer;
 }
 
-.modal-container{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background-color: rgba(0,0,0,0.3);
-	position: fixed;
-	opacity: 0;
-	pointer-events: none;
-	top: 0%;
-	left: 0%;
-	width: 100%;
-	height: 100vh;
-	z-index: 99999;
-	transition: opacity 0.3s ease;
+/* Styles the modal overlay for add/edit forms */
+.modal-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,0.3);
+    position: fixed;
+    opacity: 0;
+    pointer-events: none;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100vh;
+    z-index: 99999;
+    transition: opacity 0.3s ease;
 }
 
-.modal-container.show{
-	pointer-events: auto;
-	opacity: 1;
+/* Shows the modal when active */
+.modal-container.show {
+    pointer-events: auto;
+    opacity: 1;
 }
 
-.modal{
-	background: #FFF;
-	width: 50rem;
-	height: 30rem;
-	border-radius: 0.3rem;
-	box-shadow: 0 0.1rem 0.3rem rgba(0,0,0,0.2);
-	padding: 3rem 2rem;
-	max-width: 100%;
-	text-align: center;
+/* Styles the modal content */
+.modal {
+    background: #FFF;
+    width: 50rem;
+    height: 30rem;
+    border-radius: 0.3rem;
+    box-shadow: 0 0.1rem 0.学会0.3rem rgba(0,0,0,0.2);
+    padding: 3rem 2rem;
+    max-width: 100%;
+    text-align: center;
 }
 
+/* Grid layout for the modal form */
 .modal form {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); 
-  gap: 1rem; 
-  justify-items: stretch; 
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    justify-items: stretch;
 }
 
+/* Styles for form field containers */
 .modal form div {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
-.modal form input, 
+/* Styles for form inputs and selects */
+.modal form input,
 .modal form select {
-  padding: 0.75rem;
-  font-size: 1rem;
-  border: 1px solid #ddd;
-  border-radius: 0.5rem;
-  margin-top: 0.5rem;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    margin-top: 0.5rem;
 }
 
+/* Styles for input/select containers */
 .modal form .input-box {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
+/* Spans the file upload field across both columns */
 .modal form .file-con {
-  grid-column: span 2;
+    grid-column: span 2;
 }
 
+/* Styles the submit button in the modal form */
 .modal form button {
-  grid-column: span 2;
-  background-color: #4CAF50;
-  color: white;
-  padding: 0.75rem;
-  font-size: 1rem;
-  border: none;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  margin-top: 1rem;
+    grid-column: span 2;
+    background-color: #4CAF50;
+    color: white;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    margin-top: 1rem;
 }
 
+/* Hover effect for the submit button */
 .modal form button:hover {
-  background-color: #45a049;
+    background-color: #45a049;
 }
 
-.modal h1{
-	margin:0;
+/* Styles the modal heading */
+.modal h1 {
+    margin: 0;
 }
 
-.modal input{
-	opacity: 0.7;
+/* Reduces opacity for modal inputs */
+.modal input {
+    opacity: 0.7;
 }
 
-.modal-container form div{
-	position: relative;
+/* Positions form fields relatively for error messages */
+.modal-container form div {
+    position: relative;
 }
 
-
-
-.errorDisplay{
-	display: flex;
-	position: absolute;
-	width: 10rem;
-	height: 1rem;
-	justify-content: center;
-	align-items: center;
-	border-radius: 0.1rem;
-	font-size: 0.5rem;
-	background-color: #FDCAC4;
-	color: #ED6160;
-	top: -50%;
-	left: 30%;
-	z-index: 99;
+/* Triangle arrow for error messages */
+.errorDisplay::before {
+    content: "";
+    width: 0rem;
+    height: 0rem;
+    border-left: 0.35rem solid transparent;
+    border-right: 0.35rem solid transparent;
+    border-top: 0.7rem solid #FDCAC4;
+    position: absolute;
+    bottom: -50%;
+    left: 10%;
 }
 
+/* Styles for error messages */
+.errorDisplay {
+    display: flex;
+    position: absolute;
+    width: 11rem;
+    height: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.1rem;
+    font-size: 0.5rem;
+    background-color: #FDCAC4;
+    color: #ED6160;
+    top: -50%;
+    left: 30%;
+    z-index: 99;
+}
+
+/* Styles the venue info section in the view panel */
+.venue-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+    background: #E0E0E0;
+    height: 30rem;
+}
+
+/* css for venue images in the edit modal */
+.venue-edit {
+    width: 10rem;
+    height: 10rem;
+}
+
+/* Bold labels in the venue info section */
+.info-row .label {
+    font-weight: 600;
+}

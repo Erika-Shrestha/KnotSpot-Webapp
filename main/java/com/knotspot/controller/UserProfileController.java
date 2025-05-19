@@ -19,6 +19,8 @@ import com.knotspot.service.RegisterService;
 import com.knotspot.util.ValidationUtil;
 
 /**
+ * Erika Shrestha
+ * London met id: 23048598
  * Servlet implementation class UserProfile
  */
 
@@ -27,11 +29,31 @@ import com.knotspot.util.ValidationUtil;
 public class UserProfileController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
   
-	
+	/**
+	 * forwards the request to userprofile jsp file
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("/WEB-INF/pages/Customer/userprofile.jsp").forward(request,response);
 	}
-
+	
+	/**
+	 * checks and passes boolean with boolean with isvalid or not
+	 * @param request http request for the dopost method
+	 * @param response http response for the dopost method
+	 * @param firstName first name of user
+	 * @param lastName last name of user
+	 * @param dob date of birth of user
+	 * @param gender gender of user
+	 * @param contact contact number of user
+	 * @param email email of user
+	 * @param username username of user
+	 * @param password password of user
+	 * @param retypePassword re typed password of user
+	 * @param image selected image of user
+	 * @return boolean of validation status
+	 * @throws ServletException handles request process
+	 * @throws IOException Input/Output Exception fot the dopost method
+	 */
 	private boolean isValidInputs(HttpServletRequest request, HttpServletResponse response, String firstName, String lastName,  String email, String contact, String gender, String username, Part image)  throws ServletException, IOException {
 		boolean isValid = true;
 		isValid &= ValidationUtil.checkInputField(request, "firstname", firstName, "First Name");
@@ -44,10 +66,24 @@ public class UserProfileController extends HttpServlet {
 		return isValid;
 	}
 	
+	/**
+	 * calls the updateuser method
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		updateUsers(request,response);
 	}
 	
+	/**
+	 * retreives all the input data from the jsp file
+	 * checks input valdiation and duplciation
+	 * if the user id is similar the duplciation other than that id is not accepted
+	 * checks empty image selection
+	 * updates the data in database and object
+	 * @param request http request for the dopost method
+	 * @param response http response for the dopost method
+	 * @throws ServletException handles request process
+	 * @throws IOException Input/Output Exception fot the dopost method
+	 */
 	private void updateUsers(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String firstName = request.getParameter("first_name");

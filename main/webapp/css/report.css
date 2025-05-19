@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+/* CSS for home section padding */
+.home {
+    padding: 2rem;
+}
+
+/* CSS for home heading with white background */
+.home h1 {
+    display: inline-block;
+    width: 96.5%;
+    background: #fff;
+    margin-left: 1.3rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+/* CSS for sales report container */
+.sales-report {
+    height: 30rem;
+    padding: 1.25rem;
+    background-color: #f5f7fb;
+    border-radius: 0.5rem;
+    margin: 1.25rem;
+    padding-top: 5rem;
+}
+
+/* CSS for report grid layout */
+.report-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+}
+
+/* CSS for chart container */
+.chart-container {
+    background-color: #fff;
+    padding: 1.25rem;
+    border-radius: 0.25rem;
+    border: 0.0625rem solid #ddd;
+}
+
+/* CSS for chart size */
+.chart {
+    height: 13rem;
+    width: 80%;
+}

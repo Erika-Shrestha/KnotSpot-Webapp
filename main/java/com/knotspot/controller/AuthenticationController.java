@@ -15,6 +15,9 @@ import java.io.InputStream;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeParseException;
+import java.util.ArrayList;
+import java.util.List;
+
 import com.knotspot.model.UserModel;
 import com.knotspot.service.LoginService;
 import com.knotspot.service.RegisterService;
@@ -23,6 +26,8 @@ import com.knotspot.util.ValidationUtil;
 
 
 /**
+ * Erika Shrestha 
+ * London met id: 23048598
  * Servlet implementation class AuthenticationController
  */
 
@@ -30,14 +35,23 @@ import com.knotspot.util.ValidationUtil;
 @WebServlet(asyncSupported = true, urlPatterns = { "/login" })
 public class AuthenticationController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	//an arraylist to store active users
+	private static List<String> activeUsers = new ArrayList<>();
+    
+	/**
+	 * control caching of browser 
+	 * forwards the request to a authentication JSP file
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		//use of cache control to not store the data 
 		response.setHeader("Cache-Control","no-store");
-		
 		request.getRequestDispatcher("/WEB-INF/pages/auth.jsp").forward(request,response);
 	}
-
+	
+	/**
+	 * gets the input from the forms and handles the action according to respective methods
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String registerFormAction = request.getParameter("register");
 		String loginFormAction = request.getParameter("login");
@@ -55,7 +69,25 @@ public class AuthenticationController extends HttpServlet {
 		}
 		
 	}
-
+	
+	/**
+	 * checks and passes boolean with boolean with isvalid or not
+	 * @param request http request for the dopost method
+	 * @param response http response for the dopost method
+	 * @param firstName first name of user
+	 * @param lastName last name of user
+	 * @param dob date of birth of user
+	 * @param gender gender of user
+	 * @param contact contact number of user
+	 * @param email email of user
+	 * @param username username of user
+	 * @param password password of user
+	 * @param retypePassword re typed password of user
+	 * @param image selected image of user
+	 * @return boolean of validation status
+	 * @throws ServletException handles request process
+	 * @throws IOException Input/Output Exception fot the dopost method
+	 */
 	private boolean isValidInputs(HttpServletRequest request, HttpServletResponse response, String firstName, String lastName, String dob, String gender, String contact, String email, String username, String password, String retypePassword, Part image)  throws ServletException, IOException {
 		boolean isValid = true;
 		
@@ -73,6 +105,13 @@ public class AuthenticationController extends HttpServlet {
 		return isValid;
 	}
 	
+	/**
+	 * handles the registration of users after checking validation and duplication
+	 * @param request http request for the dopost method
+	 * @param response http response for the dopost method
+	 * @throws ServletException handles request process
+	 * @throws IOException Input/Output Exception fot the dopost method
+	 */
 	private void handleRegister(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		
 			String firstName = request.getParameter("firstname");
@@ -105,7 +144,7 @@ public class AuthenticationController extends HttpServlet {
 			System.out.println("uploaded file name: "+uploadPath);
 			System.out.println("Retrieved data");
 			
-			
+			//reads the image selected 
 			try {
 				FileOutputStream fos = new FileOutputStream(uploadPath);
 				InputStream is= image.getInputStream();
@@ -121,7 +160,8 @@ public class AuthenticationController extends HttpServlet {
 			}
 			
 			boolean isValid = isValidInputs(request, response, firstName, lastName, stringDob, gender, contact, email, username, password, retypePassword, image);
-				
+			
+			//if all entered data is valid the register service is called and again duplciate inputs are checked
 			if(isValid) {
 				System.out.println("All data is valid");
 				//making an object of user to assign the values
@@ -134,6 +174,7 @@ public class AuthenticationController extends HttpServlet {
 	   			isDuplicate |= ValidationUtil.checkDuplicate(request, "username", username, "username", registerService.getConn());
 	   			isDuplicate |= ValidationUtil.checkDuplicate(request, "contact", contact, "contact_no", registerService.getConn());
 	   			
+	   			//if duplciate fields are found, the form is not accepted and re-enter of data is required
 	   			if(isDuplicate) {
 	   				request.setAttribute("showRegister", true);
 	   				request.setAttribute("firstname", firstName);
@@ -177,7 +218,13 @@ public class AuthenticationController extends HttpServlet {
 	
 	
 	
-	//login
+	/**
+	 * this method helps the user to access the system
+	 * @param request http request for the dopost method
+	 * @param response http response for the dopost method
+	 * @throws ServletException handles request process
+	 * @throws IOException Input/Output Exception fot the dopost method
+	 */
 	public void handleLogin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		
 		String username = request.getParameter("username");
@@ -202,8 +249,25 @@ public class AuthenticationController extends HttpServlet {
 				System.out.println("Session ID: "+session);
 				//setting session attribute
 				session.setAttribute("userModel", retreivedUser);
-				CookieUtil.addCookie(response, "role", retreivedUser.getRole(), 15 * 60);
+				
+				//if the active user list does not have the username it adds 
+			    if (!activeUsers.contains(username)) {
+			        activeUsers.add(username);
+			    }
+			    getServletContext().setAttribute("activeUsers", activeUsers.size());
+			    
+			    //the max age of cookie if null sets to a default value 
+			    Integer maxAge = (Integer) getServletContext().getAttribute("cookieMaxAge");
+	            if (maxAge == null) {
+	                maxAge = 15 * 60; 
+	            }
+			    
+	            //the cookie stores the role of user with declared max age
+				CookieUtil.addCookie(response, "role", retreivedUser.getRole(), maxAge);
 				System.out.println("Login successful. Role cookie set: " + retreivedUser.getRole());
+				System.out.println("Login successful. Cookie Lifeline set: " + maxAge);
+				
+				//redirects to the pages according to the role
 				String role = retreivedUser.getRole();
 			    if ("RL1".equalsIgnoreCase(role)) {
 			        response.sendRedirect(request.getContextPath() + "/dashboard");

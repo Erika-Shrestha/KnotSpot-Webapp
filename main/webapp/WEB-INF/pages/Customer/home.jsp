@@ -98,6 +98,7 @@
 				<h1>Featured Products</h1>
 				<button class="view-all-btn">View All</button>
 			</div>
+			<!-- showing all venue data in the swiper" -->
 			<div class="container swiper">
 				<div class="slider-wrapper">
 					<div class="card-list swiper-wrapper">
@@ -105,6 +106,7 @@
 						<div class="card-item swiper-slide">
 							<img src="${pageContext.request.contextPath}/resources/${venue.venuePic}" alt="test_image" class="venue-img">
 							<h2 class="venue-name">${venue.name}</h2>
+							<p class="venue-desc"> space for: ${venue.capacity}</p>
 							<p class="venue-desc">${venue.amenities}</p>
 							<button class="venue-button">View</button>
 						</div>

@@ -12,8 +12,12 @@ import com.knotspot.model.VenueModel;
 
 public class SearchService {
 	
-private Connection conn;
+	//variable for connection
+	private Connection conn;
 	
+	/**
+	 * a constructor to check if the connection is made
+	 */
 	public SearchService() {
 		try {
 			conn = DbConfig.getDbConnection();
@@ -23,10 +27,19 @@ private Connection conn;
 		}
 	}
 	
+	/**
+	 * a getconnection 
+	 * @return the database connection
+	 */
 	public Connection getConn() {
 	    return conn;
 	}
 	
+	/**
+	 * a list of venues object selected by name or city 
+	 * @param searchValue the value to be searched
+	 * @return list of search venues
+	 */
 	public List<VenueModel> selectVenueByNameOrCity(String searchValue){
 		
 		List<VenueModel> venues = new ArrayList<>();

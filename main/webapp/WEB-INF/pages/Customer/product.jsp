@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>Knot spot</title>
 
-<!-- This connects to home.css file -->
+<!-- This connects to product.css file -->
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/product.css">
 
 
@@ -65,6 +65,7 @@
 				</div>
 			</div>
 		</section>
+		<!-- shows the venue details according to selection and all venues-->
 		<section class="product-details-con">
 		<form action="${pageContext.request.contextPath}/product#results" method="get">
 			<div class="search-con">
@@ -72,7 +73,7 @@
 				<button type="submit" class="search-btn">
             		<i class="fa-solid fa-magnifying-glass"></i>
         		</button>
-        		<button type="submit" name="search_bar" value="">Clear Search</button>
+        		<button type="submit" name="search_bar" value="" class="clear-search">Clear Search</button>
 			</div>
 		</form>
 		<div class="venue-div" id="results">
@@ -97,7 +98,7 @@
 			  <div class="venue-details">
 			    <h3 class="venue-title">${venue.name}</h3>
 			    <p class="venue-description">${venue.amenities}</p>
-			    <p class="venue-price">${venue.capacity}</p>
+			    <p class="venue-price">space for: ${venue.capacity}</p>
 			    <button class="book-btn">Book Now</button>
 			  </div>
 			</div>

@@ -10,7 +10,7 @@ import com.knotspot.model.UserModel;
 import com.knotspot.util.PasswordUtil;
 
 public class LoginService {
-private Connection conn;	//Declare a variable to store the sql connection imported from config class
+private Connection conn;
 	
 	
 	/**
@@ -26,6 +26,11 @@ private Connection conn;	//Declare a variable to store the sql connection import
 		}
 	}
 	
+	/**
+	 * to select the users according to their role and username for login
+	 * @param users object for usermodel
+	 * @return retreived user objects
+	 */
 	public UserModel retreiveUsers(UserModel users) {
 		if(conn == null) {
 			System.out.println("DB connection failed");

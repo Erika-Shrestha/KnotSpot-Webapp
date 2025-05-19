@@ -38,8 +38,10 @@
 			<div class="search-con search">
 				<input type="text" placeholder="search venues..." name="search_bar">
 				<input type="hidden" name="action" value="search">
-				<i class="fa-solid fa-magnifying-glass"></i>
-				<i class="fa-solid fa-magnifying-glass"></i>
+				<button type="submit" class="search-btn">
+            		<i class="fa-solid fa-magnifying-glass"></i>
+        		</button>
+				<button type="submit" name="search_bar" value="" class="clear-search">Clear Search</button>
 			</div>
 			</form>
 			<form action="${pageContext.request.contextPath}/management" method="get">
@@ -72,6 +74,7 @@
 		      </tr>
 		    </thead>
 		    <tbody>
+		    <!-- selects the venue details according to sort, searched or all lists -->
 		    <c:choose>
 			<c:when test="${not empty searchVenueList}">
 			<c:forEach var="searchVenue" items="${searchVenueList}">
@@ -92,7 +95,11 @@
 				        <input type="hidden" name="venue_id" value="${searchVenue.venueId}">
 				        <button type="submit" class="edit-btn"><i class="fas fa-pen"></i></button>
 				    </form>
-  					<button><i class="fas fa-eye" onclick="openPanel()"></i></button>
+				    <form action="${pageContext.request.contextPath}/management" method="get">
+					    <input type="hidden" name="action" value="view">
+					    <input type="hidden" name="venue_id" value="${searchVenue.venueId}">
+					    <button type="submit" class="view-btn"><i class="fas fa-eye"></i></button>
+					</form>
   					<form action="${pageContext.request.contextPath}/management" method="post" onsubmit="return confirm('Are you sure you want to delete this venue?');">
   						<input type="hidden" name="action" value="delete">
   						<input type="hidden" name="venue_id" value="<c:out value='${searchVenue.venueId}'/>">
@@ -121,7 +128,11 @@
 				        <input type="hidden" name="venue_id" value="${sortVenue.venueId}">
 				        <button type="submit" class="edit-btn"><i class="fas fa-pen"></i></button>
 				    </form>
-  					<button><i class="fas fa-eye" onclick="openPanel()"></i></button>
+				    <form action="${pageContext.request.contextPath}/management" method="get">
+					    <input type="hidden" name="action" value="view">
+					    <input type="hidden" name="venue_id" value="${sortVenue.venueId}">
+					    <button type="submit" class="view-btn"><i class="fas fa-eye"></i></button>
+					</form>
   					<form action="${pageContext.request.contextPath}/management" method="post" onsubmit="return confirm('Are you sure you want to delete this venue?');">
   						<input type="hidden" name="action" value="delete">
   						<input type="hidden" name="venue_id" value="<c:out value='${sortVenue.venueId}'/>">
@@ -150,7 +161,13 @@
 				        <input type="hidden" name="venue_id" value="${venue.venueId}">
 				        <button type="submit" class="edit-btn"><i class="fas fa-pen"></i></button>
 				    </form>
-  					<button><i class="fas fa-eye" onclick="openPanel()"></i></button>
+				    <form action="${pageContext.request.contextPath}/management" method="get">
+					    <input type="hidden" name="action" value="view">
+					    <input type="hidden" name="venue_id" value="${venue.venueId}">
+					    <button type="submit" class="view-btn">
+					        <i class="fas fa-eye"></i>
+					    </button>
+					</form>
   					<form action="${pageContext.request.contextPath}/management" method="post" onsubmit="return confirm('Are you sure you want to delete this venue?');">
   						<input type="hidden" name="action" value="delete">
   						<input type="hidden" name="venue_id" value="<c:out value='${venue.venueId}'/>">
@@ -167,8 +184,36 @@
 		<div id="viewPanel" class="view-panel">
 		  <div class="panel-content">
 		    <span class="close-btn" onclick="closePanel()">&times;</span>
-		    <h2>Edit Venue</h2>
-		    <p>Editing content goes here...</p>
+		    <h2>VIEW VENUES</h2>
+		    <p>A banquet related service for all customers.</p>
+		    <div class="container">
+		        <div class="venue-info">
+		            <h2>VENUE INFO</h2>
+		            <div class="venue-image">
+		        		<img src="${pageContext.request.contextPath}/resources/${selectedVenue.venuePic}" alt="Venue Image" class="venue-edit">
+		        	</div>
+		            <div class="info-row">
+		                <span class="label">NAME :</span>
+		                <span class="value">${selectedVenue.name}</span>
+		            </div>
+		            <div class="info-row">
+		                <span class="label">LOCATION :</span>
+		                <span class="value">${selectedVenue.address}</span>
+		            </div>
+		            <div class="info-row">
+		                <span class="label">CAPACITY :</span>
+		                <span class="value">${selectedVenue.capacity}</span>
+		            </div>
+		            <div class="info-row">
+		                <span class="label">TYPE :</span>
+		                <span class="value">${selectedVenue.type}</span>
+		            </div>
+		            <div class="info-row">
+		                <span class="label">STATUS :</span>
+		                <span class="value">${selectedVenue.status}</span>
+		            </div>
+		        </div>
+		    </div>
 		  </div>
 		</div>
 	</section>
@@ -317,11 +362,20 @@
 	</div>
 	
 	<script type="text/javascript" src="${pageContext.request.contextPath}/javascript/venuemanagement.js"></script>
-	<script>
-        <c:if test="${not empty selectedVenue}">
-            document.getElementById('modal-container-edit').classList.add('show');
-        </c:if>
+	<c:if test="${not empty selectedVenue && action == 'edit'}">
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('modal-container-edit')?.classList.add('show');
+        });
     </script>
+	</c:if>
+	<c:if test="${not empty selectedVenue && action == 'view'}">
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('viewPanel')?.classList.add('show');
+        });
+    </script>
+	</c:if>
     <c:if test="${showCreateModal}">
 	    <script>
 	        window.addEventListener('DOMContentLoaded', () => {

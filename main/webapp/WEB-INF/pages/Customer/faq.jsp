@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Knot spot</title>
-<!-- This connects to dashboard.css file -->
+<!-- This connects to faq.css file -->
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/faq.css">
 
 <!-- This gives access to google font "inter" -->

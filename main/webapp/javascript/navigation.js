@@ -2,6 +2,7 @@
  * 
  */
 
+/** to set the dark and light theme for admin webpages */
 const body = document.querySelector("body"),
     sidebar = body.querySelector(".side-bar"),
     toggle = body.querySelector(".toggle"),

@@ -2,17 +2,18 @@
  * 
  */
 
+//performs dashboard charts display for registered date
 document.addEventListener("DOMContentLoaded", function () {
-      const ctx = document.getElementById('revenueChart').getContext('2d');
+      const ctx = document.getElementById('registerChart').getContext('2d');
       new Chart(ctx, {
         type: 'line',
         data: {
-          labels: ['Nov 23', 'Nov 24', 'Nov 25', 'Nov 26', 'Nov 27', 'Nov 28', 'Nov 29', 'Nov 30'],
+          labels: registrationData.labels,
           datasets: [{
-            label: 'Revenue',
-            data: [25000, 30000, 35000, 37000, 40000, 42000, 45000, 47000],
-            backgroundColor: 'rgba(40, 167, 69, 0.1)',
-            borderColor: '#28a745',
+            label: 'Registered Users',
+            data: registrationData.counts,
+            backgroundColor: 'rgba(228, 233, 247, 0.8)',
+            borderColor: '#695CFE',
             borderWidth: 2,
             tension: 0.3,
             fill: true,
@@ -23,13 +24,24 @@ document.addEventListener("DOMContentLoaded", function () {
           responsive: true,
           plugins: {
             legend: {
-              display: false
+              display: true
             }
           },
           scales: {
             y: {
-              beginAtZero: false
-            }
+              beginAtZero: false,
+			  title: {
+			          display: true,
+			          text: 'Number of Users'
+			   },
+			  ticks: { stepSize: 1 }
+            },
+			x: {
+		      title: {
+		        display: true,
+		        text: 'Date'
+		      }
+			}
           }
         }
       });

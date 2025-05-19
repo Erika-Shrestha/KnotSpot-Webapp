@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>Knot spot</title>
 
-<!-- This connects to home.css file -->
+<!-- This connects to blog.css file -->
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/blog.css">
 
 

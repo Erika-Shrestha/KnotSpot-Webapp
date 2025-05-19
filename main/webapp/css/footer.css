@@ -1,204 +1,231 @@
 @charset "UTF-8";
 
-*{
-	margin: 0rem;
-	font-family: inter;
+/* Resets margins and sets font for all elements */
+* {
+    margin: 0rem;
+    font-family: inter;
 }
 
-.footer{
-	display: flex;
-	flex-direction: column;
-	gap: 0.2rem;
-	justify-content: flex-start;
-	width: 100%;
-	height: 15rem;
-	background-color: #4E0707;
+/* CSS for footer with flex column and dark red background */
+.footer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    justify-content: flex-start;
+    width: 100%;
+    height: 15rem;
+    background-color: #4E0707;
 }
 
-.footer .group{
-	position: relative;
-	width: 100%;
-	height: 1.5rem;
-	overflow: hidden;
-	background-color: black;
-	border-bottom: 0.2rem solid black;
-	border-top: 0.2rem solid black;
-	
+/* CSS for ticker group with black background */
+.footer .group {
+    position: relative;
+    width: 100%;
+    height: 1.5rem;
+    overflow: hidden;
+    background-color: black;
+    border-bottom: 0.2rem solid black;
+    border-top: 0.2rem solid black;
 }
 
-.group .text{
-	display: flex;
-	gap: 3rem;
-	align-items: center;
-	white-space: nowrap;
-	position: absolute;
-	color: white;
-	background-color: black;
-	margin: 0.3rem 0;
-	padding: 0;
-	width: max-content;
-	animation: my-animation 15s linear infinite;
-	transform: translateX(110%);
-	will-change: transform;
-	
+/* CSS for ticker text with animation */
+.group .text {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+    white-space: nowrap;
+    position: absolute;
+    color: white;
+    background-color: black;
+    margin: 0.3rem 0;
+    padding: 0;
+    width: max-content;
+    animation: my-animation 15s linear infinite;
+    transform: translateX(110%);
+    will-change: transform;
 }
 
+/* CSS for ticker animation */
 @keyframes my-animation {
-	0% {
-		transform: translateX(110%);
-	}
-	100% {
-		transform: translateX(-100%);
-	}
+    0% {
+        transform: translateX(110%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
 }
 
-
-.group .text.text2{
-	animation-delay: 7.5s;
+/* CSS for second ticker text with delay */
+.group .text.text2 {
+    animation-delay: 7.5s;
 }
 
-
-.text p{
-	font-size: 0.8rem;
+/* CSS for ticker text paragraphs */
+.text p {
+    font-size: 0.8rem;
 }
 
-.text i{
-	font-size: 0.6rem;
+/* CSS for ticker icons */
+.text i {
+    font-size: 0.6rem;
 }
 
-.footer .element-con{
-	width: 100%;
-	height: 13.5rem;
-	background-color: #F8B936;
+/* CSS for footer content container with yellow background */
+.footer .element-con {
+    width: 100%;
+    height: 13.5rem;
+    background-color: #F8B936;
 }
 
-.redirect-con{
-	width: 97.2%;
-	height: 10rem;
-	display: flex;
-	gap: 1rem;
-	padding: 0 1rem;
+/* CSS for redirect container with flex layout */
+.redirect-con {
+    width: 97.2%;
+    height: 10rem;
+    display: flex;
+    gap: 1rem;
+    padding: 0 1rem;
 }
 
-.service-con{
-	display:flex;
-	gap: 1rem;
-	width: 35.5%;
-	height: 10rem;
+/* CSS for service container with flex layout */
+.service-con {
+    display: flex;
+    gap: 1rem;
+    width: 35.5%;
+    height: 10rem;
 }
 
-.service-con a{
-	text-decoration: none;
-	color: black;
+/* CSS for service links */
+.service-con a {
+    text-decoration: none;
+    color: black;
 }
 
-.service-con a:hover{
-	text-decoration: underline;
+/* CSS for service links on hover */
+.service-con a:hover {
+    text-decoration: underline;
 }
 
-.service-con div{
-	width: 48%;
-	height: 10rem;
+/* CSS for service container divs */
+.service-con div {
+    width: 48%;
+    height: 10rem;
 }
 
-.category-one, .category-two, .newsletter-con{
-  display: flex;
-  flex-direction: column; 
-  align-items: center;
+/* CSS for category and newsletter sections with flex column */
+.category-one, .category-two, .newsletter-con {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.category-one h1, .category-two h1, .newsletter-con h1{
-	font-size: 1.3rem;
-	margin: 2rem 0rem 1rem 0rem;
+/* CSS for headings in category and newsletter sections */
+.category-one h1, .category-two h1, .newsletter-con h1 {
+    font-size: 1.3rem;
+    margin: 2rem 0rem 1rem 0rem;
 }
 
+/* CSS for lists in category sections */
 .category-one ul, .category-two ul {
-  list-style-type: none;
-  padding: 0;           
-  margin: 0;            
-  display: flex;
-  flex-direction: column; 
-  align-items: center;
-  gap:1rem;    
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
 }
 
-.category-one li, .category-two li {           
-	font-size: 0.8rem;   
+/* CSS for list items in category sections */
+.category-one li, .category-two li {
+    font-size: 0.8rem;
 }
 
-.category-one li:hover, .category-two li:hover {           
-	text-decoration: underline;
-	cursor: pointer;
+/* CSS for list items on hover */
+.category-one li:hover, .category-two li:hover {
+    text-decoration: underline;
+    cursor: pointer;
 }
 
-.newsletter-con{
-	width: 33%;
-	height: 10rem;
+/* CSS for newsletter container */
+.newsletter-con {
+    width: 33%;
+    height: 10rem;
 }
 
+/* CSS for email form with flex layout */
 .footer-email-form {
-	display:flex;
-	gap: 0;
+    display: flex;
+    gap: 0;
 }
 
-.newsletter-con input{
-	width: 10rem;
-	height: 2rem;
-	border: 0.1rem white;
-	border-right: none;
-	border-radius: 2rem 0rem 0rem 2rem;
-	outline: none;
-	padding: 0rem 1rem 0rem 1rem;
+/* CSS for newsletter input field */
+.newsletter-con input {
+    width: 10rem;
+    height: 2rem;
+    border: 0.1rem white;
+    border-right: none;
+    border-radius: 2rem 0rem 0rem 2rem;
+    outline: none;
+    padding: 0rem 1rem 0rem 1rem;
 }
 
-.newsletter-con button{
-	width: 4rem;
-	border: 0.1rem white;
-	border-radius: 0rem 2rem 2rem 0rem;
-	background-color: black;
-	border-right: none;
-	outline: none;
+/* CSS for newsletter submit button */
+.newsletter-con button {
+    width: 4rem;
+    border: 0.1rem white;
+    border-radius: 0rem 2rem 2rem 0rem;
+    background-color: black;
+    border-right: none;
+    outline: none;
 }
 
-.newsletter-con h2{
-	font-size: 0.6rem;
-	color: white;
+/* CSS for newsletter subheading */
+.newsletter-con h2 {
+    font-size: 0.6rem;
+    color: white;
 }
 
-.map-con{
-	display:flex;
-	align-items: center;
+/* CSS for map container with flex alignment */
+.map-con {
+    display: flex;
+    align-items: center;
 }
 
-.social-con{
-	display: flex;
-	align-items: center;
-	width: 100%;
-	height: 3rem;
+/* CSS for social media container */
+.social-con {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 3rem;
 }
 
-.app-con ul{
-	padding-left: 4rem;
-	display: flex;
-	list-style: none;
-	gap: 1rem;
+/* CSS for app links list */
+.app-con ul {
+    padding-left: 4rem;
+    display: flex;
+    list-style: none;
+    gap: 1rem;
 }
 
-.app-con i{
-	font-size: 1.5rem;
+/* CSS for app icons */
+.app-con i {
+    font-size: 1.5rem;
 }
 
-.notice-con{
-	position: absolute;
-	left: 37%;
+/* CSS for notice container positioning */
+.notice-con {
+    position: absolute;
+    left: 37%;
 }
 
-.notice-con ul{
-	display: flex;
-	list-style: none;
-	gap: 1rem;
+/* CSS for notice list */
+.notice-con ul {
+    display: flex;
+    list-style: none;
+    gap: 1rem;
 }
 
-.notice-con li{
-	font-size: 0.8rem;
+/* CSS for notice list items */
+.notice-con li {
+    font-size: 0.8rem;
 }

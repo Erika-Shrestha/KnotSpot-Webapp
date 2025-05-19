@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Knot Spot</title>
-<!-- This connects to dashboard.css file -->
+<!-- This connects to auth.css file -->
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/auth.css">
 
 <!-- This gives access to google font "inter" -->
